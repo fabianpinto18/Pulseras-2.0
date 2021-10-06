@@ -1,0 +1,387 @@
+body {
+  background-color: white;
+  font-family: "DIN Next", sans-serif;
+}
+p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.catalogo1 {
+  background-image:  url("https://cdn.shopify.com/s/files/1/2362/1703/collections/WEB-CAPA-MOM-2021_6317_360x.jpg?v=1619274389");
+  
+}
+.catalogo2 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/IMG_0718_900x.jpg?v=1591115545");
+}
+.catalogo3 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/IMG_3124_900x.JPG?v=1618661295");
+}
+.catalogo4 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/CAPA_BT_Collar-9919_900x.jpg?v=1606224900");
+}
+.catalogos:hover {
+  background-color: rgb(66, 66, 66);
+  background-blend-mode: soft-light;
+  transition: all 0.8s;
+  padding-bottom: 35px;
+}
+
+.catalogos {
+  padding-bottom: 25px;
+  padding-left: 25px;
+  border: #ffffff 5px solid;
+  height: 250px;
+  width: 25%;
+  display: inline-flex;
+  margin: 0px;
+  background-size: cover;
+  background-position: center;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  box-shadow: 0px -30px 30px 0px rgb(109, 109, 109) inset;
+  margin-bottom: 40px;
+}
+.img-anillos {
+  height: 470px;
+  width: 500px;
+  margin-left: 70px;
+}
+.description-ring {
+  padding-top: 10%;
+  padding-left: 40px;
+}
+.buton-ring {
+  background-color: #8ac2cb;
+  color: white;
+  width: 280px;
+  text-align: left;
+}
+.buton-ring:hover {
+  width: 330px;
+  color: white;
+  animation-duration: 0.5s;
+  animation-name: slidein;
+}
+.menu a span {
+  transition: transform 0.2s ease-out;
+}
+
+@keyframes slidein {
+  from {
+    width: 300px;
+  }
+
+  to {
+    width: 330px;
+  }
+}
+
+.unico:hover::after {
+  font-family: FontAwesome;
+  content: "\f095";
+  margin-left: 50px;
+  background-color: red;
+  position: absolute;
+  animation-duration: 0.5s;
+  animation-name: putaflecha;
+  animation-iteration-count: unset;
+  width: 40px;
+  animation-fill-mode: forwards;
+}
+@keyframes putaflecha {
+  from {
+    margin-left: 50px;
+  }
+
+  to {
+    margin-left: 30px;
+  }
+}
+.arete1 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_5875_360x.jpg?v=1619275583");
+}
+.arete2 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_6283_2_360x.jpg?v=1619313049");
+}
+.arete3 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-MODELO-2021_5922_360x.jpg?v=1619282450");
+}
+.arete4 {
+  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_5881_1_360x.jpg?v=1619312573");
+}
+
+.muestras {
+  padding-bottom: 25px;
+  padding-left: 25px;
+  border: #ffffff 15px solid;
+  height: 400px;
+  width: 285px;
+  display: inline-flex;
+  background-size: cover;
+  background-position: center;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.precios {
+  margin-left: 15px;
+}
+.box-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: white 2px solid;
+  box-shadow: 0px 0px 5px 1px rgb(122, 122, 122);
+  margin-right: 5px;
+  margin-bottom: 40px;
+}
+.icono{
+font-size: 35px;
+float: right;
+
+  
+}
+footer{
+  background-color: white;
+  width: 100%;
+  
+  
+  margin: auto;
+
+
+}
+
+
+.footer-copy{
+  display: flex;
+  margin-top: 60px;
+  margin-left: 15%;
+  
+}
+
+
+.img-icono{
+  display: flex;
+}
+.colum1{
+  margin-left: 50%;
+  margin-top: 3%;
+  display: flex;
+  
+}
+.imagen-footer{
+  margin-left: 15%;
+  margin-top: 3%;
+}
+
+.iconos-footer{
+  font-size: 300%;
+}
+.icono-whats{
+  margin-left: 15px;
+  
+}
+.icono-ins{
+  margin-left: 15px;
+}
+.carousel1{
+
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPMNDiZVjg-L2QzfqzxaDGmW2_PW1T7thzUw&usqp=CAU);
+
+}
+
+.carousel2{
+
+  background-image: url(https://universe-meeps.leagueoflegends.com/v1/assets/images/viego-splash.jpg);
+}
+
+.carousel3{
+
+
+  background-image: url(https://universe-meeps.leagueoflegends.com/v1/assets/images/viego-splash.jpg);
+}
+#carousel4{
+  background-image: url(https://cdn.shopify.com/s/files/1/2362/1703/files/WEB-JDT_1668_1296x.jpg);
+ 
+}
+
+/*  */
+.carousel1, .carousel2, .carousel3 {
+  
+  
+  height: 600px;
+ 
+  background-attachment: fixed;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#carousel4{
+  
+  color: white;
+  font-family: 'DNI Next', 'sans-serif';
+  background-size: 100% 100%;
+  
+  height: 400px;
+ 
+  background-attachment: fixed;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+nav{
+  width: 80%;
+  background-color:white;
+  
+}
+
+.config{
+  color: lightslategray;
+ 
+}
+
+
+#menu ul {
+list-style:none;
+margin:0;
+padding:0;
+}
+
+#menu ul a {
+
+display:block;
+
+text-decoration:none;
+font-weight:400;
+font-size:15px;
+padding:10px;
+font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+#menu ul li {
+position:relative;
+float:left;
+margin:0;
+padding:0;
+}
+
+
+
+
+
+#menu ul ul {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+padding:0;
+}
+
+#menu ul ul li {
+float:none;
+width:150px
+}
+
+#menu ul ul a {
+line-height:120%;
+padding:10px 15px;
+}
+
+#menu ul li:hover > ul {
+display:block;
+}
+
+.perro{
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+
+.ventana{
+border-radius: 22px;
+width: 50%;
+background-color:white;
+padding: 33px;
+position:absolute;
+height: 60%;
+left: 15%;
+bottom: 30%;
+
+
+}
+.carrusel_config{
+  width: 80%;
+  height: 500px;
+}
+.imagenes_base{
+  left: 68%;
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 30%;
+  height: 30%;
+  margin-top: 40%;
+}
+
+
+.perra{
+display: flex;
+margin-left: 78%;
+width: 338px;
+
+
+}
+.boton_imagenes{
+  margin-left: 84%;
+  margin-top: 30px;
+}
+.barra_lateral{
+  padding: 0%;
+  margin: 0;
+}
+
+#sidebar{
+  position:fixed;
+  width: 200px;
+  height: 100%;
+  background-color:cornsilk;
+
+}
+#sidebar ul li{
+  color:rgba(15, 15, 15, 0.9);
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 15px 10px;
+  list-style: none;
+  
+}
+.logo{
+ display: block;
+ margin: auto;
+}
+#sidebar .icono{
+   position: absolute;
+   top: 20px;
+   cursor: pointer;
+   left: 220px;
+
+}
+.imagenes_bd{
+  width: 20%;
+  height: 50%;
+  margin-left: 20%;
+
+}
+.img_bd{
+  display: inline-flex;
+  position:static;
+  left: 80%;
+  bottom: 50%;
+}
