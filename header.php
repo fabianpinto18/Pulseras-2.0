@@ -35,5 +35,5 @@
       }
     </style>
     <script src="https://kit.fontawesome.com/ad1d7214b5.js" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   </head>

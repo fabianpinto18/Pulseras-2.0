@@ -122,7 +122,7 @@ if (isset($_SESSION["id"])) {
   <div style="cursor: pointer;"  class="section--divider">
     <div class="container">
       <div class="row">
-      <a class="catalogo1 catalogos" href="coleccion-amigos.php"><div >M·O·M</div></a>
+      <a class="catalogo1 catalogos" href="coleccion-amigos.php"><div >Pulseras</div></a>
 
        <a class="catalogo2 catalogos" href="coleccion-anillos.php"> <div >Anillos</div></a>
 
@@ -136,7 +136,7 @@ if (isset($_SESSION["id"])) {
   
   <div style="display: inline; margin:90px ">
     <div>
-      <h2 style="float: left;margin-left: 80px; ">Nueva Coleccion - M.O.M</h2>
+      <h2 style="float: left;margin-left: 80px; ">Nueva Coleccion - Navidad</h2>
     </div>
     <div>
       <P style="float: right;margin-right: 80px; ">Todos</P><br>
@@ -237,7 +237,7 @@ if (isset($_SESSION["id"])) {
 
             </div>
             <div class="col text-center">
-              <img src="Img/Pulsera_2" width="350px" alt="" srcset="">
+              <img src="Img/7.png" width="350px" alt="" srcset="">
             </div>
           </div>
         </div>
@@ -249,8 +249,8 @@ if (isset($_SESSION["id"])) {
  
 <!-- Fin del cuepo -->
   <div id="carousel4" class="text-center mt-4">
-    <h1 class="display-2">Capa Hogar</h1>
-    <h3>Joyería para el hogar</h3>
+    <h1 class="display-2">P O L I S</h1>
+    <h3>Pulseras para para toda ocasion</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
   <footer>

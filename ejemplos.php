@@ -28,7 +28,13 @@ if (isset($_SESSION["id"])) {
     echo "Mensaje bla bla bla";
   }
 }
-
+if (!empty($_POST["name"])) {
+  echo $_POST["name"];
+  $sql = "INSERT INTO categorias (nombre) VALUES(:alias)";
+  $sentencia = $mbd->prepare($sql);
+  $sentencia ->bindParam(':alias',$_POST["name"]);
+  $sentencia -> execute();
+};
 
 ?>
 <!DOCTYPE html>
@@ -108,7 +114,49 @@ if (isset($_SESSION["id"])) {
         
         
        
+      <div class="formulario"> 
+      <h1 class="mb-5" style="margin-left: 33%;">Formulario de Andres</h1>
+        <form>
+            <div class="row mb-4">
+              <div class="col">
+                <input id="idInput" type="text" class="form-control" placeholder="Nombre Categoria">
+              </div>
+              <div>
+                  <button  type="button" onclick="registro()" class="btn btn-outline-success">Registrar</button>
+              </div>
+             </div>
+         </form>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Categoria</th>
+      <th>Opciones</th>
       
+    </tr>
+  </thead>
+  <tbody id="tabla">
+    <!-- <tr >
+      <th scope="row">1</th>
+      <td>Mark</td>
+      
+      <td style="width: 30%;" class="botones5"><button type="button"  class="btn btn-outline-success ml-5">Eliminar</button>
+        <button type="button"  class="btn btn-outline-warning ml-5">Editar</button></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      
+      <td>@fat</td>
+    </tr>
+    <tr>
+     
+      
+     
+    </tr> -->
+  </tbody>
+</table>
+</div>
     </div>     
 
 <!-- <div class="">
@@ -172,10 +220,9 @@ foreach ($imagenes as $imagen) :
 
     <script src="codigo.js"></script>
       <!-- jQuery CDN - Slim version (=without AJAX) -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <!-- Popper.JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
       <!-- Bootstrap JS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>

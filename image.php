@@ -32,7 +32,26 @@ if (isset($_SESSION["id"])) {
 
 ?>
 
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Collapsible sidebar using Bootstrap 4</title>
 
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <title>Este si es</title>
+</head>
 <body>
 
 
@@ -46,7 +65,61 @@ if (isset($_SESSION["id"])) {
   
 
 
-  <div class="ventana" id="vent">
+  
+
+  
+  
+  <div class="wrapper">
+
+<!-- Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Barra lateral</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Pagina de Joyas</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="index.php">Principal</a>
+                </li>
+                <li>
+                    <a href="colecciones.php">Coleeciones</a>
+                </li>
+                <li>
+                    <a href="coleccion-pulseras.php">Coleccion pulseras</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="image.php">Carrusel</a>
+        </li>
+        <!-- <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li> -->
+        <li>
+            <a href="ejemplos.php">Formulario Andres</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="ventana" id="vent">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,13 +128,13 @@ if (isset($_SESSION["id"])) {
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/Pulsera_4.jpeg" class="d-block w-100" alt="...">
+      <img src="img/carrusel/carrusel8.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/Pulsera_4.jpeg" class="d-block w-100" alt="...">
+      <img src="img/carrusel/carrusel8.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/Pulsera_4.jpeg" class="d-block w-100" alt="...">
+      <img src="img/carrusel/carrusel8.png" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -74,18 +147,6 @@ if (isset($_SESSION["id"])) {
   </a>
 </div>
   </div>
-
-  
-<div id="sidebar">
- 
-  <ul class="barra_lateral">
-    <li> <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" alt=""></li>
-    <a href=""><li>Texto 1</li></a>
-    <a href=""><li>Texto 2</li></a>
-    <a href=""><li>texto 3</li></a>
-    <a href=""><li>texto 4</li></a>
-    <a href=""><li>texto 5</li></a>
-  </ul>
 </div>
 
 
@@ -116,7 +177,7 @@ if (isset($_SESSION["id"])) {
   
 
  
-  <form enctype="multipart/form-data" action="imagenes.php" method="POST">
+  <!-- <form enctype="multipart/form-data" action="imagenes.php" method="POST">
     <div class="input-group flex-nowrap imagenes_base">
       <div class="input-group-prepend">
         <span class="input-group-text" id="addon-wrapping">Imagen</span>
@@ -125,30 +186,24 @@ if (isset($_SESSION["id"])) {
       <button class="btn btn-danger" type="submit">ENVIAR</button>
 
     </div>
-  </form> 
+  </form>  -->
    <?php
         foreach ($imagenes as $imagen) :
 
         ?>
-  <div class="img_bd">
+  <!-- <div class="img_bd">
   <img  class="imagenes_bd" src="imagenes/<?= $imagen["nombre"] ?>" alt="">
-  </div>
+  </div> -->
   <?php endforeach ?>  
 
-  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-  <!-- Popper and Bootstrap JS -->
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+ 
   <script src="codigo.js"></script>
-  <Script>
-    $('.dropdown-toggle').dropdown();
-  </Script>
+      <!-- jQuery CDN - Slim version (=without AJAX) -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!-- Popper.JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   <footer>
 
 

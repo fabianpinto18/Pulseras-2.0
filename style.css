@@ -7,17 +7,17 @@ p {
   margin-bottom: 10px;
 }
 .catalogo1 {
-  background-image:  url("https://cdn.shopify.com/s/files/1/2362/1703/collections/WEB-CAPA-MOM-2021_6317_360x.jpg?v=1619274389");
+  background-image:  url(Img/coleccion/1.jpeg);
   
 }
 .catalogo2 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/IMG_0718_900x.jpg?v=1591115545");
+  background-image: url(Img/coleccion/2.jpeg);
 }
 .catalogo3 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/IMG_3124_900x.JPG?v=1618661295");
+  background-image: url(Img/coleccion/3.jpeg);
 }
 .catalogo4 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/CAPA_BT_Collar-9919_900x.jpg?v=1606224900");
+  background-image: url(Img/coleccion/4.jpeg);
 }
 .catalogos:hover {
   background-color: rgb(66, 66, 66);
@@ -100,16 +100,28 @@ p {
   }
 }
 .arete1 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_5875_360x.jpg?v=1619275583");
+  background-image: url(Img/9.png);
 }
 .arete2 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_6283_2_360x.jpg?v=1619313049");
+  background-image: url(Img/10.png);
 }
 .arete3 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-MODELO-2021_5922_360x.jpg?v=1619282450");
+  background-image: url(Img/14.png);
 }
 .arete4 {
-  background-image: url("https://cdn.shopify.com/s/files/1/2362/1703/products/WEB-CAPA-MOM-2021_5881_1_360x.jpg?v=1619312573");
+  background-image: url(Img/8.png);
+}
+.arete5 {
+  background-image: url(Img/5.png);
+}
+.arete6 {
+  background-image: url(Img/6.jpeg);
+}
+.arete7 {
+  background-image: url(Img/7.png);
+}
+.arete8 {
+  background-image: url(Img/11.png);
 }
 
 .muestras {
@@ -188,22 +200,23 @@ footer{
 }
 .carousel1{
 
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPMNDiZVjg-L2QzfqzxaDGmW2_PW1T7thzUw&usqp=CAU);
-
+  background-image: url("Img/carrusel/carrusel12.jpg");
+  
 }
 
 .carousel2{
 
-  background-image: url(https://universe-meeps.leagueoflegends.com/v1/assets/images/viego-splash.jpg);
+  background-image: url("Img/carrusel/carrusel8.png");
+ 
 }
 
 .carousel3{
 
 
-  background-image: url(https://universe-meeps.leagueoflegends.com/v1/assets/images/viego-splash.jpg);
+  background-image: url(Img/carrusel/carrusel14.png);
 }
 #carousel4{
-  background-image: url(https://cdn.shopify.com/s/files/1/2362/1703/files/WEB-JDT_1668_1296x.jpg);
+  background-image: url(Img/carrusel/carusel1.jpg);
  
 }
 
@@ -212,7 +225,7 @@ footer{
   
   
   height: 600px;
- 
+  
   background-attachment: fixed;
 
   background-repeat: no-repeat;
@@ -312,7 +325,7 @@ background-color:white;
 padding: 33px;
 position:absolute;
 height: 60%;
-left: 15%;
+left: 20%;
 bottom: 30%;
 
 
@@ -346,9 +359,22 @@ width: 338px;
   padding: 0%;
   margin: 0;
 }
+/* barra lateral */
 
+.formulario{
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 75%;
+  height: 80%;
+}
+
+.botones5{
+  margin: auto;
+  align-items: center;
+  width: 40%;
+}
 #sidebar{
-  position:fixed;
+  
   width: 200px;
   height: 100%;
   background-color:cornsilk;
@@ -384,4 +410,106 @@ width: 338px;
   position:static;
   left: 80%;
   bottom: 50%;
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+}
+
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+.formulario3 {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
 }

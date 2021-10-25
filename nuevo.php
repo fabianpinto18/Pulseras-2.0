@@ -159,7 +159,7 @@ if (isset($_SESSION["id"])) {
 
         </div>
         <div>
-          <div class="muestras arete1">
+          <div class="muestras arete5">
 
           </div>
           <div class="precios">
@@ -171,7 +171,7 @@ if (isset($_SESSION["id"])) {
           </div>
         </div>
         <div>
-          <div class="muestras arete1">
+          <div class="muestras arete6">
 
           </div>
           <div class="precios">
@@ -183,7 +183,7 @@ if (isset($_SESSION["id"])) {
           </div>
         </div>
         <div>
-          <div class="muestras arete1">
+          <div class="muestras arete7">
 
           </div>
           <div class="precios">
@@ -195,7 +195,7 @@ if (isset($_SESSION["id"])) {
           </div>
         </div>
         <div>
-          <div class="muestras arete1">
+          <div class="muestras arete8">
 
           </div>
           <div class="precios">
