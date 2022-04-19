@@ -6,6 +6,18 @@ $sql = "SELECT  * FROM `descripcion`  ";
 $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
+
+
+$sql = "SELECT * FROM `productos`";
+$llamado1 = $mbd->prepare($sql);
+$llamado1->execute();
+$productos = $llamado1->fetchAll();
+$imagenes_por_tabla =2;
+$total_imagenes = $llamado1->rowCount();
+$paginas = $total_imagenes/2;
+$paginas = ceil($paginas);
+
+//var_dump($productos);
 // foreach($descripcion as $titulo){
 //   echo var_dump($titulo);
 // }
@@ -118,10 +130,22 @@ if (isset($_SESSION["id"])) {
   
   <div class="section--divider">
     <div class="container">
+      <img src="" alt="">
       <div class="row">
-        <div>
-          <div class="muestras arete1">
+      <?php if(!$_GET){
+        header('Location:coleccion-amigos.php?pagina=1');
+      }
+      $sql = 'SELECT * FROM productos LIMIT 0,3';
+      $sentencia_sql = $mbd->prepare($sql);
+      $sentencia_sql -> execute();
+      $resultado_sql =  $sentencia_sql->fetchAll();
 
+      ?>
+        <?php foreach($resultado_sql as $dato): ?>
+        <div class="l"> 
+          
+          <div class="muestras <?php echo $dato['nombre'] ?>">
+           
           </div>
           <div class="precios">
             <p>Amuleto m·o·m</p>
@@ -130,92 +154,42 @@ if (isset($_SESSION["id"])) {
             
           </div>
         </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            
-
-          </div>
-        </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            
-          </div>
-
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            
-            
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
+       
+        <?php endforeach ?>
+        <?php foreach ($resultado_sql as $dato):  ?>
+          <script>
+          var ul1 = document.querySelector(".<?php echo $dato['nombre']?>");
+          ul1.style.cssText = 'background-image: url("imagenes/productos/<?php echo $dato['imagen_id']; ?>")';
+           
+        </script> 
+         <?php endforeach ?> 
         </div>
       </div>
     </div>
+    <nav aria-label="Page navigation example">
+    
+  <ul class="pagination">
+    <li class="page-item 
+    <?php echo $_GET['pagina']<=1? 'disabled' :''  ?>" >
+      <a class="page-link" 
+    href="coleccion-amigos.php?pagina=<?php echo $_GET['pagina']-1 ?>">Previous</a></li>
+    <?php for($i=0;$i<$paginas;$i++): ?>
+    <li class="page-item
+    <?php echo $_GET['pagina']==$i+1 ? 'active' :''?>">
+    <a class="page-link" 
+    href="coleccion-amigos.php?pagina=<?php echo $i+1?>">
+    <?php echo $i+1?></a></li>
+    <?php endfor?>
+    
+    <li class="page-item 
+    <?php echo $_GET['pagina']>=$paginas? 'disabled' :''  ?>">
+      <a class="page-link"
+    href="coleccion-amigos.php?pagina=<?php echo $_GET['pagina']+1 ?>">Next</a></li>
+  </ul>
+</nav>
   </div>
   <hr />
-  <!-- Inicio del Cuerpo -->
-
-  
  
-<!-- Fin del cuepo -->
  
   <footer>
 

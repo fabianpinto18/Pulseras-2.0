@@ -54,121 +54,62 @@ if (isset($_SESSION["id"])) {
     <title>Este si es</title>
 </head>
 <body class="formulario3">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light  mx-auto">
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" height="100" alt="">
+      </a>
+      <a class="navbar-brand  ml-5" href="image.php">Carrusel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="navbar-brand" href="ejemplos.php">Formulario Andres<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="#">Sobre nosotros</a>
+          </li>
 
-    <div class="wrapper">
+        </ul>
+        <div class="d-grid gap-2  ml-5">
 
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Barra lateral</h3>
+          <?php if (!empty($users)) : ?>
+            <div class="btn-group">
+            <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hola <?= $users["nombre"]; 
+            ?>
+         
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
+              
             </div>
-    
-            <ul class="list-unstyled components">
-                <p>Pagina de Joyas</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="index.php">Principal</a>
-                        </li>
-                        <li>
-                            <a href="colecciones.php">Coleeciones</a>
-                        </li>
-                        <li>
-                            <a href="coleccion-pulseras.php">Coleccion pulseras</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="image.php">Carrusel</a>
-                </li>
-                <!-- <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li> -->
-                <li>
-                    <a href="ejemplos.php">Formulario Andres</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        
-        
-       
-      
-    </div>     
+          </div>
+            <?php else :  ?>
+              <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
+              <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+            <?php endif ?>
+          
 
-<!-- <div class="">
-   <form class="imagenes_base" enctype="multipart/form-data" action="imagenes.php" method="POST">
-    <label for="">Imagen</label>
-    <input accept="image/*" name="imagen" type="file">
-    <button type="submit">ENVIAR</button>
-  </form>
+           <div style="color: red;" id="menu">
+
+            <p class="h4" style="display: inline; color:lightslategray"></p>
+            <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
+
+            
+
+          </div> 
+          
+        </div>
+      </div>
+    </nav>
+</header>
+
   
-  <?php
-
-
-foreach ($imagenes as $imagen) :
-
-?>
-
-<img  src="imagenes/<?= $imagen["nombre"] ?>" alt="">
-<?php endforeach ?> 
-</div> -->
-
-
-
-<!-- 
-<form enctype="multipart/form-data" action="imagenes.php" method="POST">
-<div class="input-group flex-nowrap imagenes_base">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="addon-wrapping">Imagen</span>
-  </div>
-  <input accept="image/*" name="imagen" type="file" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-  <button class="btn btn-danger" type="submit">ENVIAR</button>
-
-</div>
-</form> -->
-<!-- <?php
-
-
-    foreach ($imagenes as $imagen) :
-
-    ?>
-
-<img  src="imagenes/<?= $imagen["nombre"] ?>" alt="">
-<?php endforeach ?>  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="codigo.js"></script>
       <!-- jQuery CDN - Slim version (=without AJAX) -->

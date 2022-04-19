@@ -1,24 +1,25 @@
 body {
-  background-color: white;
+  background-color:rgb(253, 255, 255);
   font-family: "DIN Next", sans-serif;
 }
 p {
   font-weight: bold;
   margin-bottom: 10px;
 }
-.catalogo1 {
-  background-image:  url(Img/coleccion/1.jpeg);
+/* .catalogo1 {
+  
+  background-image: url(Img/Logo.png);
   
 }
 .catalogo2 {
-  background-image: url(Img/coleccion/2.jpeg);
+  background-image: url(imagenes/Samira.jpg);
 }
 .catalogo3 {
   background-image: url(Img/coleccion/3.jpeg);
-}
-.catalogo4 {
+} */
+/* .catalogo4 {
   background-image: url(Img/coleccion/4.jpeg);
-}
+} */
 .catalogos:hover {
   background-color: rgb(66, 66, 66);
   background-blend-mode: soft-light;
@@ -42,6 +43,7 @@ p {
   color: white;
   box-shadow: 0px -30px 30px 0px rgb(109, 109, 109) inset;
   margin-bottom: 40px;
+  
 }
 .img-anillos {
   height: 470px;
@@ -99,17 +101,17 @@ p {
     margin-left: 30px;
   }
 }
-.arete1 {
-  background-image: url(Img/9.png);
+/* .arete1 {
+  background-image: url(Img/carrusel/carrusel9.png);
 }
 .arete2 {
-  background-image: url(Img/10.png);
+  background-image: url(Img/carrusel/carrusel13.png);
 }
 .arete3 {
-  background-image: url(Img/14.png);
+  background-image: url(Img/carrusel/carrusel4.jpg);
 }
 .arete4 {
-  background-image: url(Img/8.png);
+  background-image: url(Img/carrusel/carrusel6.png);
 }
 .arete5 {
   background-image: url(Img/5.png);
@@ -122,7 +124,7 @@ p {
 }
 .arete8 {
   background-image: url(Img/11.png);
-}
+} */
 
 .muestras {
   padding-bottom: 25px;
@@ -152,8 +154,10 @@ p {
 .icono{
 font-size: 35px;
 float: right;
-
-  
+margin-right: 100px;
+}
+.texto-i{
+  right: 100px;
 }
 footer{
   background-color: white;
@@ -198,13 +202,13 @@ footer{
 .icono-ins{
   margin-left: 15px;
 }
-.carousel1{
+/* .carousel1{
 
   background-image: url("Img/carrusel/carrusel12.jpg");
   
-}
+} */
 
-.carousel2{
+/* .carousel2{
 
   background-image: url("Img/carrusel/carrusel8.png");
  
@@ -214,9 +218,9 @@ footer{
 
 
   background-image: url(Img/carrusel/carrusel14.png);
-}
+} */
 #carousel4{
-  background-image: url(Img/carrusel/carusel1.jpg);
+  background-image: url(Img/carrusel/carrusel8.png);
  
 }
 
@@ -224,12 +228,13 @@ footer{
 .carousel1, .carousel2, .carousel3 {
   
   
-  height: 600px;
+ 
   
-  background-attachment: fixed;
-
+  background-attachment:fixed;
+  
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:100% 95%;
+  object-fit: contain;
 }
 
 #carousel4{
@@ -414,7 +419,7 @@ width: 338px;
 
 
 .wrapper {
-  display: flex;
+  
   align-items: stretch;
 }
 
@@ -512,4 +517,90 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
+}
+.img-cambio{
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  flex-grow: 4;
+  margin-left: 7%;
+}
+.form_img{
+  width: 50%;
+  height: 30px;
+  margin-left: 25%;
+  display: flex ;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.container-carousel{
+  margin: auto;
+  background-color:rgb(239, 240, 238);
+  width: 100%;
+  padding: 20px;
+
+}
+
+ul.carousel-inner{
+  position: relative;
+  width: 100%;
+  height: 600px;
+  
+  
+}
+ul.carousel-inner li{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+
+}
+ul.carousel-inner li.carousel1{
+  width: 100%;
+  height: 600px;
+  
+}
+ul.carousel-inner li.carousel2{
+  width: 100%;
+  height:600px;
+  object-fit:scale-down;
+}
+ul.carousel-inner li.carousel3{
+  width: 100%;
+  height: 600px;
+  object-fit:scale-down;
+
+}
+.nav-tamaño{
+  height: 150px;
+  width: 100%;
+  
+}
+.img-tam{
+  height:150px; 
+  width:250px;
+  
+  margin-left: 50px;
+}
+.navbar-brand{
+  
+  margin-left: 140px;
+}
+.btn-group{
+  right: 100px;
+}
+.container-footer{
+  background-color: #e7e7e7;
+}
+.img-tam-login{
+  height:150px; 
+  width:250px;
+
+}
+.nav-login{
+  width: 100%;
+  
 }

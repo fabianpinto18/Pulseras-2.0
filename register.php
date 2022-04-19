@@ -30,8 +30,8 @@ if (!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["password
 
 <body class="bg-muted">
 
-    <nav>
-        <a href="index.php"><img  class="ml-3 mt-2" src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250"></a>
+    <nav class="nav-login">
+        <a href="index.php"><img  class="ml-3 mt-2 img-tam-login" src="img/Celeste_page-0001 (1).jpg"></a>
     </nav>
     <div  class="container">
         
@@ -46,7 +46,7 @@ if (!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["password
                             <p> <?= $message; ?> </p>
                
                             <?php endif ?>
-                            <p>Registro de pagina de Joyas</p>
+                            <p>Registro de pagina de Pulseras</p>
 
                         </div>
                         <div class="form-group">

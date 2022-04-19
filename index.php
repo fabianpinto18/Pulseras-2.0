@@ -9,6 +9,26 @@ $descripcion = $llamado->fetchAll();
 // foreach($descripcion as $titulo){
 //   echo var_dump($titulo);
 // }
+
+
+
+$sql = "SELECT `nombre` FROM `imagenes` WHERE categoria ='Carrusel'" ;
+$llamado_1 = $mbd->prepare($sql);
+$llamado_1->execute();
+$imagenes = $llamado_1->fetchAll();
+$array_imagenes=array();
+foreach($imagenes as $titulo):
+  array_push($array_imagenes, $titulo["nombre"]);
+endforeach;
+
+$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) ORDER BY categoria DESC";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$collares2 = $collares->fetchAll();
+
+
+
+
 if (isset($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $sql = "SELECT `id`, `correo`,  `nombre`, `contraseña` FROM `users` WHERE `id`= '$id'";
@@ -31,11 +51,11 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
+    <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
       <a class="navbar-brand" href="#">
-        <img src="img/IllumTech.png" height="90" alt="">
+        <img src="img/Celeste_page-0001 (1).jpg" class="img-tam" " alt="">
       </a>
-      <a class="navbar-brand  ml-5" href="nuevo.php">Nuevo</a>
+      <a class="navbar-brand  ml-1" href="nuevo.php">Nuevo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -60,15 +80,17 @@ if (isset($_SESSION["id"])) {
          
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="config.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
               <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
               
             </div>
           </div>
             <?php else :  ?>
-              <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
+              <div class="btn-salir">
+              <p class="texto-i" style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
               <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
-            <?php endif ?>
+              </div> 
+              <?php endif ?>
           
 
            <div style="color: red;" id="menu">
@@ -96,17 +118,17 @@ if (isset($_SESSION["id"])) {
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active carousel1">
+        <ul class="carousel-inner">
+          <li class="carousel-item active carousel1 ">
 
-          </div>
-          <div class="carousel-item carousel2 ">
+            </li>
+          <li class="carousel-item  carousel2 ">
 
-          </div>
-          <div class="carousel-item carousel3 ">
+            </li>
+          <li class="carousel-item carousel3 ">
 
-          </div>
-        </div>
+            </li>
+        </ul>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -136,7 +158,7 @@ if (isset($_SESSION["id"])) {
   
   <div style="display: inline; margin:90px ">
     <div>
-      <h2 style="float: left;margin-left: 80px; ">Nueva Coleccion - Navidad</h2>
+      <h2 style="float: left;margin-left: 80px; "><?= $descripcion[0][1]?></h2>
     </div>
     <div>
       <P style="float: right;margin-right: 80px; ">Todos</P><br>
@@ -151,8 +173,8 @@ if (isset($_SESSION["id"])) {
 
           </div>
           <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
+            <p><?= $descripcion[1][1]?></p>
+            <h6><?= $descripcion[1][3]?>0</h6>
 
             <div class="box-color" style="  background-color: #9384;"></div>
             <div class="box-color" style="background-color: blue;"></div>
@@ -161,8 +183,8 @@ if (isset($_SESSION["id"])) {
         <div>
           <div class="arete2 muestras"> </div>
           <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
+          <p><?= $descripcion[2][1]?></p>
+            <h6><?= $descripcion[2][3]?>0</h6>
             <div class="box-color" style="background-color: #9384;"></div>
 
           </div>
@@ -171,8 +193,8 @@ if (isset($_SESSION["id"])) {
         <div>
           <div class="arete3 muestras "></div>
           <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
+          <p><?= $descripcion[3][1]?></p>
+            <h6><?= $descripcion[3][3]?>0</h6>
             <div class="box-color" style="background-color: gold;;"></div>
             <div class="box-color" style="background-color: white;"></div>
           </div>
@@ -182,8 +204,8 @@ if (isset($_SESSION["id"])) {
         <div>
           <div class="arete4 muestras"> </div>
           <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
+          <p><?= $descripcion[4][1]?></p>
+            <h6><?= $descripcion[4][3]?>0</h6>
             <div class="box-color" style="  background-color: green;"></div>
           </div>
 
@@ -194,45 +216,17 @@ if (isset($_SESSION["id"])) {
   <hr />
   <!-- Inicio del Cuerpo -->
 
-  <?php foreach ($descripcion as $value) :
-    $valor = intval($value["id"])
-
-  ?>
-  <p style="display:none" id=""><?= $value["id"] ?></p>
-    <?php if ($valor % 2 == 0) : ?>
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col">
-            <img class="img-anillos" src="Img/Pulsera_1" alt="" width="350px">
-          </div>
-          <div class="col description-ring">
-            <h3> <?= $value["titulo"] ?> </h3>
-            <p><?= $value["subtitulo"] ?></p>
-
-            <br>
-            <p>
-              <?= $value["descripcion"] ?>
-            </p>
-            <br>
-
-
-          </div>
-        </div>
-        <hr>
-
-      </div>
-    <?php else :
-    ?>
-      <div class="container">
+  
+  <p style="display:none" id=""></p>
+    
+  <div class="container">
         <div class="capa-basicos mb-5">
           <div class="row">
             <div class="col-md-6 col-sm-12 mt-5">
 
 
-              <h1>Titulo normal</h1>
-              <p>Candongas de diferentes formas y anillos martillados hacen parte de nuestros básicos. Son pensados para un uso cotidiano que complementen tu look de manera fresca y relajada.</p>
+              <h1><?= $descripcion[5][1]?></h1>
+              <p><?= $descripcion[5][3]?></p>
               <!-- <button class="btn btn-info rounded-0">Ver todos los basicos <i class="fa fa-arrow-right" aria-hidden="true"></i></button> -->
 
             </div>
@@ -242,14 +236,35 @@ if (isset($_SESSION["id"])) {
           </div>
         </div>
 
-      </div>
-    <?php endif ?>
+      </div>  
+      <div class="container">
 
-  <?php endforeach ?>
+        <div class="row">
+          <div class="col">
+            <img class="img-anillos" src="Img/carrusel/carrusel8.png" alt="" width="350px">
+          </div>
+          <div class="col description-ring">
+            <h3> <?= $descripcion[6][1]?> </h3>
+          
+            <br>
+            <p>
+            <?= $descripcion[6][3]?>
+            </p>
+            <br>
+
+
+          </div>
+        </div>
+        <hr>
+
+      </div>
+    
+      
+    
  
 <!-- Fin del cuepo -->
   <div id="carousel4" class="text-center mt-4">
-    <h1 class="display-2">P O L I S</h1>
+    <h1 class="display-2">C E L E S T E</h1>
     <h3>Pulseras para para toda ocasion</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
@@ -258,7 +273,7 @@ if (isset($_SESSION["id"])) {
     <div class="container-footer">
       <div class="img-icono">
         <div class="imagen-footer">
-          <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" alt="">
+          <img class="img-tam" src="img/Celeste_page-0001 (1).jpg "alt="">
         </div>
         <div class="colum1">
 
@@ -301,6 +316,48 @@ if (isset($_SESSION["id"])) {
   <Script>
     $('.dropdown-toggle').dropdown();
 </Script>
+<script>
+var ul1 = document.querySelector(".carousel1");
+ul1.style.cssText = 'background-image: url("imagenes/<?php if(isset($array_imagenes[0])){
+  echo $array_imagenes[0];
+}else{
+  echo "mantenimiento.png";
+}  ?>");';
+
+
+
+var ul2 = document.querySelector(".carousel2");
+ul2.style.cssText = 'background-image: url("imagenes/<?php if(isset($array_imagenes[1])){
+  echo $array_imagenes[1];
+}else{
+  echo "mantenimiento.png";
+}  ?>");';
+
+var ul3 = document.querySelector(".carousel3");
+ul3.style.cssText = 'background-image: url("imagenes/<?php if(isset($array_imagenes[2])){
+  echo $array_imagenes[2];
+}else{
+  echo "mantenimiento.png";
+}  ?>");';
+
+
+var pulseras = document.querySelector(".catalogo1");
+pulseras.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] ?>");';
+
+
+
+var anillos = document.querySelector(".catalogo2");
+anillos.style.cssText = 'background-image: url("imagenes/<?=  $collares2[7][0] ?>");';
+
+var pañoleteros = document.querySelector(".catalogo3");
+pañoleteros.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
+
+var collares = document.querySelector(".catalogo4");
+collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+
+
+
+</script>
 
 </body>
 

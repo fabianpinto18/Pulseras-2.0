@@ -33,7 +33,7 @@ if (isset($_SESSION["id"])) {
   <header>
     <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
       <a class="navbar-brand" href="index.php">
-        <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" height="70" alt="">
+        <img class="img-tam" src="img/Celeste_page-0001 (1).jpg" height="70" alt="">
       </a>
       <a class="navbar-brand  ml-5" href="#">Nuevo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@ if (isset($_SESSION["id"])) {
             <a class="navbar-brand" href="#">Colecciones<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="#">Sobre nosotros</a>
+            <a class="navbar-brand" href="#"></a>
           </li>
 
         </ul>
@@ -224,7 +224,7 @@ if (isset($_SESSION["id"])) {
     <div class="container-footer">
       <div class="img-icono">
         <div class="imagen-footer">
-          <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" alt="">
+          <img class="img-tam" src="img/Celeste_page-0001 (1).jpg" alt="">
         </div>
         <div class="colum1">
 

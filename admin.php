@@ -32,15 +32,15 @@ if(!empty($_POST["email"]) && !empty($_POST["password"])){
 
 <body class="bg-muted">
 
-    <nav>
-        <img class="ml-3 mt-2" src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250">
+    <nav class="nav-login">
+        <img  class="ml-3 mt-2 img-tam-login" src="img/Celeste_page-0001 (1).jpg">
     </nav>
     <div style=" margin-top:10%;" class="container mr-5">
         <div class="row">
 
             <div style="display: inline-table;" class=" col-4">
 
-                <h4 class="text-muted" style="display: table-cell; vertical-align: middle;">Bienbenido a la pagina de Joyas, con diseños exclusivos e inovadores</h4>
+                <h4 class="text-muted" style="display: table-cell; vertical-align: middle;">Bienbenido a la pagina de Pulseras, con diseños exclusivos e inovadores</h4>
 
             </div>
             <div class=" col-5 bg-muted">
