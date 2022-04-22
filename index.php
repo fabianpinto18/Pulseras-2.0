@@ -21,7 +21,7 @@ foreach($imagenes as $titulo):
   array_push($array_imagenes, $titulo["nombre"]);
 endforeach;
 
-$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) ORDER BY categoria DESC";
+$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
 $collares = $mbd->prepare($sql);
 $collares->execute();
 $collares2 = $collares->fetchAll();
@@ -347,13 +347,13 @@ pulseras.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] 
 
 
 var anillos = document.querySelector(".catalogo2");
-anillos.style.cssText = 'background-image: url("imagenes/<?=  $collares2[7][0] ?>");';
+anillos.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
 
 var pañoleteros = document.querySelector(".catalogo3");
 pañoleteros.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
 
 var collares = document.querySelector(".catalogo4");
-collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
 
 
 

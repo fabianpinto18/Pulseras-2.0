@@ -7,11 +7,11 @@ $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
 
-$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) ORDER BY categoria DESC";
+$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
 $collares = $mbd->prepare($sql);
 $collares->execute();
 $collares2 = $collares->fetchAll();
-var_dump($collares2);
+// var_dump($collares2);
 // echo $collares2[2][0];
 
 
@@ -97,40 +97,13 @@ if (isset($_SESSION["id"])) {
 
 
     <!-- Carrusel -->
-    <div class="container-carousel mb-4">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active carousel1">
-
-          </div>
-          <div class="carousel-item carousel2 ">
-
-          </div>
-          <div class="carousel-item carousel3 ">
-
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
+   
   </header>
 
   <div style="cursor: pointer;" class="section--divider">
     <div class="container">
       <div class="row">
-        <a class="catalogo1 catalogos" href="coleccion-amigos.php">
+        <div class="catalogo1 catalogos" >
           <div>Pulseras
             <form enctype="multipart/form-data" action="imagenes.php" method="POST">
               <div class="input-group ">
@@ -141,9 +114,9 @@ if (isset($_SESSION["id"])) {
               </div>
             </form>
           </div>
-        </a>
+        </div>
 
-        <a class="catalogo2 catalogos" href="coleccion-anillos.php">
+        <div class="catalogo2 catalogos" >
           <div>Anillos
              <form enctype="multipart/form-data" action="imagenes.php" method="POST">
               <div class="input-group ">
@@ -154,9 +127,9 @@ if (isset($_SESSION["id"])) {
               </div>
             </form>
           </div>
-        </a>
+        </div>
 
-        <a class="catalogo3 catalogos " href="coleccion-pulseras.php">
+        <div class="catalogo3 catalogos ">
           <div>Pulseras/Pañoleteros 
             <form enctype="multipart/form-data" action="imagenes.php" method="POST">
               <div class="input-group ">
@@ -167,9 +140,9 @@ if (isset($_SESSION["id"])) {
               </div>
             </form>
           </div>
-        </a>
+        </div>
 
-        <a class="catalogo4 catalogos" href="coleccion-collares.php">
+        <div class="catalogo4 catalogos" >
           <div>Collares <form enctype="multipart/form-data" action="imagenes.php" method="POST">
               <div class="input-group ">
                 <input type="text" name="descripcion" style="display: none;" value="Collares">
@@ -179,7 +152,7 @@ if (isset($_SESSION["id"])) {
               </div>
             </form>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
@@ -357,13 +330,13 @@ ul1.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] ?>");
 
 
 var ul2 = document.querySelector(".catalogo2");
-ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[7][0] ?>");';
+ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
 
 var ul3 = document.querySelector(".catalogo3");
 ul3.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
 
 var ul4 = document.querySelector(".catalogo4");
-ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
 
 </script>
   <script src="codigo.js"></script>

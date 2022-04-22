@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2022 a las 19:50:04
+-- Tiempo de generación: 22-04-2022 a las 09:46:29
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -135,7 +135,11 @@ INSERT INTO `imagenes` (`id`, `nombre`, `categoria`, `last_updated`) VALUES
 (127, 'DSC_0608.png', 'Carrusel', '2022-04-19 17:44:53'),
 (128, 'DSC_0622.png', 'Anillos', '2022-04-19 17:43:59'),
 (129, 'DSC_0612.png', 'Pañoleteros', '2022-04-19 17:44:04'),
-(130, 'DSC_0624.png', 'Collares', '2022-04-19 17:44:12');
+(130, 'DSC_0624.png', 'Collares', '2022-04-19 17:44:12'),
+(131, 'Alistar.jpg', 'Pulseras', '2022-04-22 12:32:01'),
+(132, 'Vex.jpg', 'Collares', '2022-04-22 12:29:23'),
+(133, 'Seraphine.jpg', 'Pañoleteros', '2022-04-22 12:28:27'),
+(134, 'Rell.jpg', 'Anillos', '2022-04-22 12:29:31');
 
 -- --------------------------------------------------------
 
@@ -169,7 +173,12 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `nombre`, `precio`, `imagen_id`, `categoria_id`) VALUES
 (26, 'blabla', 88888, '260164824.png', 35),
-(27, 'nose', 20000, '206623464.png', 35);
+(27, 'nose', 20000, '206623464.png', 35),
+(31, 'CLOROX', 7, '552901717.PNG', 35),
+(32, 'corona', 5, '782716511.PNG', 34),
+(33, 'fox', 8, '583817055.jpg', 33),
+(34, 'puerta', 9, '835750407.PNG', 33),
+(35, 'andres', 200000, '1431227338.jpg', 35);
 
 -- --------------------------------------------------------
 
@@ -284,7 +293,7 @@ ALTER TABLE `descripcion`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT de la tabla `image_categoria`
@@ -296,7 +305,7 @@ ALTER TABLE `image_categoria`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

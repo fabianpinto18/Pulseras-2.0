@@ -2,7 +2,9 @@
 session_start();
 include('conexion.php');
 include_once('header.php');
-$sql = "SELECT  * FROM `descripcion`  ";
+$sql = "SELECT p.* FROM productos p LEFT JOIN categorias c ON p.categoria_id= c.id WHERE p.categoria_id=33 ";
+
+
 $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
@@ -118,94 +120,25 @@ if (isset($_SESSION["id"])) {
   <div class="section--divider">
     <div class="container">
       <div class="row">
+      <?php
+        foreach ($descripcion as $producto):
+        ?>
         <div>
-          <div class="muestras arete1">
+        <!-- <div style="background-image: url(https://www.hola.com/imagenes/belleza/actualidad/20210318186309/billie-eilish-cambio-de-look-radical-rubia/0-932-93/billie-eilish-getty2-t.jpg);" class="muestras"> -->
+
+          <div style="background-image:url(imagenes/productos/<?= $producto["imagen_id"]?>)" class="muestras ">
 
           </div>
           <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
+            <p><?=$producto["nombre"]?></p>
+            <h6>$<?= number_format(floatval($producto["precio"]))?></h6>
 
             
           </div>
         </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            
-
-          </div>
-        </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            
-          </div>
-
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            
-            
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
-        </div>
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <!-- <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div> -->
-          </div>
-        </div>
+        <?php
+        endforeach;
+        ?>
       </div>
     </div>
   </div>

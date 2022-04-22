@@ -10,7 +10,7 @@ $llamado_1->execute();
 $imagenes_bd = $llamado_1->fetchAll();
 $imagenes_repetida="";
 $descripcion="";
-
+$now =date("Y-m-d H:i:s");
 
 if ($_FILES["imagen"]["error"]>0) {
     echo"Error al cargar el archivo";
@@ -49,7 +49,7 @@ if ($_FILES["imagen"]["error"]>0) {
                
                 if(!empty($imagenes_repetida)){
                     echo "error";
-                    $sql = "UPDATE `imagenes` SET `categoria`='$descripcion' WHERE `nombre` = '$imagen_2' ";
+                    $sql = "UPDATE `imagenes` SET `categoria`='$descripcion',`last_updated`='$now' WHERE `nombre` = '$imagen_2' ";
                     $res = $mbd -> prepare($sql);
                     $res -> execute();
                     // $res -> bindParam(':nombre',$_FILES["imagen"]["name"],PDO::PARAM_STR, 12);
@@ -73,7 +73,7 @@ if ($_FILES["imagen"]["error"]>0) {
         }
     else{
         echo "error";
-                    $sql = "UPDATE `imagenes` SET `categoria`='$descripcion' WHERE `nombre` = '$imagen_2' ";
+                    $sql = "UPDATE `imagenes` SET `categoria`='$descripcion',`last_updated`='$now' WHERE `nombre` = '$imagen_2' ";
                     $res = $mbd -> prepare($sql);
                     $res -> execute();
                     if (!empty($_POST["descripcion"])){
