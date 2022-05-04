@@ -33,9 +33,9 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
-      <a class="navbar-brand" href="index.php">
-        <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" height="70" alt="">
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
+      <a class="navbar-brand" href="#">
+        <img src="img/003-Final.png" class="img-tam" " alt="">
       </a>
       <a class="navbar-brand  ml-5" href="nuevo.php">Nuevo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,38 +150,33 @@ if (isset($_SESSION["id"])) {
  
 <!-- Fin del cuepo -->
  
-  <footer>
+<footer class="pie-pagina"> 
+              <div class="grupo-1">
+                <div class="box">
+                  <figure>
+                    <a href="#">
+                        <img src="img/003-Final.png" alt="Imagen del Footer">
+                    </a>
+                  </figure>
+                </div>
+                <div class="box">
+                  <h2>SOBRE NOSOTROS</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                </div>
+                <div class="box">
+                  <h2>CONTACTANOS</h2>
+                  <div class="red-social">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-youtube"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="grupo-2">
+                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-    <div class="container-footer">
-      <div class="img-icono">
-        <div class="imagen-footer">
-          <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" alt="">
-        </div>
-        <div class="colum1">
-
-          <div class="icono-face">
-            <a href=""><i class="fab fa-facebook-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-whats">
-            <a href=""><i class="fab fa-whatsapp-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-ins">
-            <a href=""><i class="fab fa-instagram-square iconos-footer"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copy">
-        <div class="copy mr-2">
-          Copyright © Todos los derechos reservados <a style="color: black;" href="">|</a>
-        </div>
-        <div class="informacion">
-          <a style="color: black;" href="sobre_nosotros.php"> Informcaion de la compañia </a> | <a style="color: black;" href="">Terminos y Condiciones</a>
-        </div>
-      </div>
-    </div>
-
+              </div>
 
   </footer>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->

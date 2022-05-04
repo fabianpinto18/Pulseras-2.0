@@ -31,25 +31,22 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
       <a class="navbar-brand" href="index.php">
-        <img class="img-tam" src="img/Celeste_page-0001 (1).jpg" height="70" alt="">
+        <img src="img/003-Final.png" class="img-tam" " alt="">
       </a>
-      <a class="navbar-brand  ml-5" href="#">Nuevo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="navbar-brand" href="#">Colecciones<span class="sr-only">(current)</span></a>
+            <a class="navbar-brand" href="colecciones.php">Colecciones<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="#">Sobre Nosotros</a>
           </li>
 
         </ul>
+        
         <div class="d-grid gap-2  ml-5">
 
           <?php if (!empty($users)) : ?>
@@ -66,8 +63,10 @@ if (isset($_SESSION["id"])) {
             </div>
           </div>
             <?php else :  ?>
-              <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
-              <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+              <div class="btn-salir">
+              <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
+              <a  style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+              </div> 
             <?php endif ?>
           
 
@@ -92,16 +91,16 @@ if (isset($_SESSION["id"])) {
    
   </header>
 
-  <div class="section--divider mt-5">
+  <div style="cursor: pointer;"  class="section--divider">
     <div class="container">
       <div class="row">
-        <div class="catalogo1 catalogos">M·O·M</div>
+      <a class="catalogo1 catalogos" href="coleccion-pulseras.php"><div >Pulseras</div></a>
 
-        <div class="catalogo2 catalogos">Anillos</div>
+       <a class="catalogo2 catalogos" href="coleccion-anillos.php"> <div >Anillos</div></a>
 
-        <div class="catalogo3 catalogos ">Pulseras/Pañoleteros</div>
+      <a class="catalogo3 catalogos " href="coleccion-amigos.php">  <div >Pañoleteros</div></a>
 
-        <div class="catalogo4 catalogos">Collares</div>
+      <a class="catalogo4 catalogos" href="coleccion-collares.php">  <div >Collares</div></a>
       </div>
     </div>
   </div>
@@ -219,38 +218,33 @@ if (isset($_SESSION["id"])) {
     <h3>Joyería para el hogar</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
-  <footer>
+  <footer class="pie-pagina"> 
+              <div class="grupo-1">
+                <div class="box">
+                  <figure>
+                    <a href="#">
+                        <img src="img/003-Final.png" alt="Imagen del Footer">
+                    </a>
+                  </figure>
+                </div>
+                <div class="box">
+                  <h2>SOBRE NOSOTROS</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                </div>
+                <div class="box">
+                  <h2>CONTACTANOS</h2>
+                  <div class="red-social">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-youtube"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="grupo-2">
+                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-    <div class="container-footer">
-      <div class="img-icono">
-        <div class="imagen-footer">
-          <img class="img-tam" src="img/Celeste_page-0001 (1).jpg" alt="">
-        </div>
-        <div class="colum1">
-
-          <div class="icono-face">
-            <a href=""><i class="fab fa-facebook-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-whats">
-            <a href=""><i class="fab fa-whatsapp-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-ins">
-            <a href=""><i class="fab fa-instagram-square iconos-footer"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copy">
-        <div class="copy mr-2">
-          Copyright © Todos los derechos reservados <a style="color: black;" href="">|</a>
-        </div>
-        <div class="informacion">
-          <a style="color: black;" href="sobre_nosotros.php"> Informcaion de la compañia </a> | <a style="color: black;" href="">Terminos y Condiciones</a>
-        </div>
-      </div>
-    </div>
-
+              </div>
 
   </footer>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->

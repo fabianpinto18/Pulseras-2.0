@@ -33,14 +33,14 @@ if(!empty($_POST["email"]) && !empty($_POST["password"])){
 <body class="bg-muted">
 
     <nav class="nav-login">
-        <img  class="ml-3 mt-2 img-tam-login" src="img/Celeste_page-0001 (1).jpg">
+        <img  class="ml-3 mt-2 img-tam-login" src="img/003-Final.png">
     </nav>
     <div style=" margin-top:10%;" class="container mr-5">
         <div class="row">
 
             <div style="display: inline-table;" class=" col-4">
 
-                <h4 class="text-muted" style="display: table-cell; vertical-align: middle;">Bienbenido a la pagina de Pulseras, con diseños exclusivos e inovadores</h4>
+                <h4 class="text-muted" style="display: table-cell; vertical-align: middle;">Bienvenido a la pagina de Pulseras, con diseños exclusivos e inovadores</h4>
 
             </div>
             <div class=" col-5 bg-muted">
@@ -77,7 +77,35 @@ if(!empty($_POST["email"]) && !empty($_POST["password"])){
         </div>
     </div>
 
+    <footer class="pie-pagina"> 
+              <div class="grupo-1">
+                <div class="box">
+                  <figure>
+                    <a href="#">
+                        <img src="img/003-Final.png" alt="Imagen del Footer">
+                    </a>
+                  </figure>
+                </div>
+                <div class="box">
+                  <h2>SOBRE NOSOTROS</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                </div>
+                <div class="box">
+                  <h2>CONTACTANOS</h2>
+                  <div class="red-social">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-youtube"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="grupo-2">
+                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
+              </div>
+
+  </footer>
   
 <script>$('.dropdown-toggle').dropdown()</script>
 </body>

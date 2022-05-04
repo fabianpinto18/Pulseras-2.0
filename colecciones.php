@@ -31,25 +31,22 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
       <a class="navbar-brand" href="index.php">
-        <img  src="" height="70" alt="">
+        <img src="img/003-Final.png" class="img-tam" " alt="">
       </a>
-      <a class="navbar-brand  ml-5" href="nuevo.php">Nuevo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="navbar-brand" href="#">Colecciones<span class="sr-only">(current)</span></a>
+            <a class="navbar-brand" href="nuevo.php">Nuevo<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="#">Sobre nosotros</a>
+            <a class="navbar-brand" href="#">Sobre Nosotros</a>
           </li>
 
         </ul>
+        
         <div class="d-grid gap-2  ml-5">
 
           <?php if (!empty($users)) : ?>
@@ -60,14 +57,16 @@ if (isset($_SESSION["id"])) {
          
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="config.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
               <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
               
             </div>
           </div>
             <?php else :  ?>
-              <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
-              <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+              <div class="btn-salir">
+              <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
+              <a  style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+              </div> 
             <?php endif ?>
           
 
@@ -83,7 +82,6 @@ if (isset($_SESSION["id"])) {
         </div>
       </div>
     </nav>
-
 
 
 
@@ -414,38 +412,33 @@ if (isset($_SESSION["id"])) {
     <h3>Joyería para el hogar</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
-  <footer>
+  <footer class="pie-pagina"> 
+              <div class="grupo-1">
+                <div class="box">
+                  <figure>
+                    <a href="#">
+                        <img src="img/003-Final.png" alt="Imagen del Footer">
+                    </a>
+                  </figure>
+                </div>
+                <div class="box">
+                  <h2>SOBRE NOSOTROS</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                </div>
+                <div class="box">
+                  <h2>CONTACTANOS</h2>
+                  <div class="red-social">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-youtube"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="grupo-2">
+                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-    <div class="container-footer">
-      <div class="img-icono">
-        <div class="imagen-footer">
-          <img class="img-tam" src="img/Celeste_page-0001 (1).jpg" alt="">
-        </div>
-        <div class="colum1">
-
-          <div class="icono-face">
-            <a href=""><i class="fab fa-facebook-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-whats">
-            <a href=""><i class="fab fa-whatsapp-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-ins">
-            <a href=""><i class="fab fa-instagram-square iconos-footer"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copy">
-        <div class="copy mr-2">
-          Copyright © Todos los derechos reservados <a style="color: black;" href="">|</a>
-        </div>
-        <div class="informacion">
-          <a style="color: black;" href="sobre_nosotros.php"> Informcaion de la compañia </a> | <a style="color: black;" href="">Terminos y Condiciones</a>
-        </div>
-      </div>
-    </div>
-
+              </div>
 
   </footer>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->

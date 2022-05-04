@@ -39,11 +39,11 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
       <a class="navbar-brand" href="#">
-        <img src="img/IllumTech.png" height="90" alt="">
+        <img src="img/003-Final.png" class="img-tam" " alt="">
       </a>
-      <a class="navbar-brand  ml-5" href="nuevo.php">Nuevo</a>
+      <a class="navbar-brand  ml-5" href="image.php">Carrusel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,43 +51,43 @@ if (isset($_SESSION["id"])) {
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="navbar-brand" href="colecciones.php">Colecciones<span class="sr-only">(current)</span></a>
+            <a class="navbar-brand" href="ejemplos.php">Registro de Imagenes<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="#">Sobre nosotros</a>
-          </li>
+         
 
         </ul>
         <div class="d-grid gap-2  ml-5">
 
           <?php if (!empty($users)) : ?>
             <div class="btn-group">
-              <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Hola <?= $users["nombre"];
-                      ?>
-
-              </button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="config.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
-                <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
-
-              </div>
+            <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hola <?= $users["nombre"]; 
+            ?>
+         
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
+              
             </div>
-          <?php else :  ?>
-            <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
-            <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
-          <?php endif ?>
+          </div>
+            <?php else :  ?>
+              <div class="btn-salir">
+              <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
+              <a  style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+              </div> 
+            <?php endif ?>
+          
 
-
-          <div style="color: red;" id="menu">
+           <div style="color: red;" id="menu">
 
             <p class="h4" style="display: inline; color:lightslategray"></p>
             <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
 
+            
 
-
-          </div>
-
+          </div> 
+          
         </div>
       </div>
     </nav>
@@ -289,38 +289,33 @@ if (isset($_SESSION["id"])) {
     <h3>Pulseras para para toda ocasion</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
-  <footer>
+  <footer class="pie-pagina"> 
+              <div class="grupo-1">
+                <div class="box">
+                  <figure>
+                    <a href="#">
+                        <img src="img/003-Final.png" alt="Imagen del Footer">
+                    </a>
+                  </figure>
+                </div>
+                <div class="box">
+                  <h2>SOBRE NOSOTROS</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+                </div>
+                <div class="box">
+                  <h2>CONTACTANOS</h2>
+                  <div class="red-social">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-youtube"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="grupo-2">
+                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-    <div class="container-footer">
-      <div class="img-icono">
-        <div class="imagen-footer">
-          <img src="https://cdn.shopify.com/s/files/1/2362/1703/files/darklogo_100x.png?v=1505495250" alt="">
-        </div>
-        <div class="colum1">
-
-          <div class="icono-face">
-            <a href=""><i class="fab fa-facebook-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-whats">
-            <a href=""><i class="fab fa-whatsapp-square iconos-footer"></i></a>
-
-          </div>
-          <div class="icono-ins">
-            <a href=""><i class="fab fa-instagram-square iconos-footer"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copy">
-        <div class="copy mr-2">
-          Copyright © Todos los derechos reservados <a style="color: black;" href="">|</a>
-        </div>
-        <div class="informacion">
-          <a style="color: black;" href="sobre_nosotros.php"> Informcaion de la compañia </a> | <a style="color: black;" href="">Terminos y Condiciones</a>
-        </div>
-      </div>
-    </div>
-
+              </div>
 
   </footer>
   <script>
