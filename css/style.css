@@ -20,11 +20,18 @@ p {
 /* .catalogo4 {
   background-image: url(Img/coleccion/4.jpeg);
 } */
+.catalogo8 {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .catalogos:hover {
   background-color: rgb(66, 66, 66);
   background-blend-mode: soft-light;
   transition: all 0.8s;
   padding-bottom: 35px;
+  
 }
 
 .catalogos {
@@ -49,6 +56,8 @@ p {
   height: 470px;
   width: 500px;
   margin-left: 70px;
+  image-resolution: inherit;
+  
 }
 .description-ring {
   padding-top: 10%;
@@ -575,7 +584,7 @@ ul ul a {
   width: 200px;
   height: 300px;
   object-fit: cover;
-  flex-grow: 4;
+  
   margin-left: 7%;
 }
 .form_img{
@@ -729,4 +738,36 @@ ul.carousel-inner li.carousel3{
     grid-gap: 50px;
     padding: 45px 0px;
   }
+}
+.checkboxs{
+  
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+ 
+}
+.checkbox{
+   border: black 5px solid;
+  display: inline-flex;
+  flex-direction: row;
+  border-radius: 5px;
+  margin: 20px 20px;
+  width: 250px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.botonCarrusel{
+  background-color:red; 
+  height:30px;
+  float:left;
+  border:red 5px solid;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  position: relative;
+  left: 212px;
 }

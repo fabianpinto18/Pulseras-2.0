@@ -11,8 +11,7 @@ $sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_update
 $collares = $mbd->prepare($sql);
 $collares->execute();
 $collares2 = $collares->fetchAll();
-// var_dump($collares2);
-// echo $collares2[2][0];
+
 
 
 
@@ -170,69 +169,12 @@ if (isset($_SESSION["id"])) {
       </div>
     </div>
 
-    <div class="section--divider">
-      <div class="container">
-        <div class="row">
-          <div>
-            <div class="muestras arete1">
-
-            </div>
-            <div class="precios">
-              <input type="text" name="tendencia1" value="<?= $descripcion[1][1] ?>"></input>
-              <br />
-              <input type="text" name="costo1" value="<?= $descripcion[1][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="  background-color: #9384;"></div>
-              <div class="box-color" style="background-color: blue;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="arete2 muestras"> </div>
-            <div class="precios">
-              <input type="text" name="tendencia2" value="<?= $descripcion[2][1] ?>"></input>
-              <br />
-              <input type="text" name="costo2" value="<?= $descripcion[2][3] ?>"></input>
-              <br />
-              <div class="box-color" style="background-color: #9384;"></div>
-
-            </div>
-          </div>
-
-          <div>
-            <div class="arete3 muestras "></div>
-            <div class="precios">
-              <input type="text" name="tendencia3" value="<?= $descripcion[3][1] ?>"></input>
-              <br />
-              <input type="text" name="costo3" value="<?= $descripcion[3][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="background-color: gold;;"></div>
-              <div class="box-color" style="background-color: white;"></div>
-            </div>
-
-          </div>
-
-          <div>
-            <div class="arete4 muestras"> </div>
-            <div class="precios">
-              <input type="text" name="tendencia4" value="<?= $descripcion[4][1] ?>"></input>
-              <br />
-              <input type="text" name="costo4" value="<?= $descripcion[4][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="  background-color: green;"></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+  
     <hr />
     <!-- Inicio del Cuerpo -->
 
 
-    <p style="display:none" </p>
+    <p style="display:none"> </p>
     <div class="container">
       <div class="capa-basicos mb-5">
         <div class="row">
@@ -257,10 +199,7 @@ if (isset($_SESSION["id"])) {
     <div class="container">
 
       <div class="row">
-        <div class="col">
-          <img class="img-anillos" src="Img/Pulsera_1" alt="" width="350px">
-        </div>
-        <div class="col description-ring">
+          <div class="col   order-12 description-ring">
           <input type="text" name="title3" value="<?= $descripcion[6][1] ?>"> </input>
 
 
@@ -269,20 +208,36 @@ if (isset($_SESSION["id"])) {
             <?= $descripcion[6][3] ?>
             </textarea>
           <br>
-
+          <button type="submit">Actualizar</button>
+  </form>
 
         </div>
+        <div class="col order-1" >
+        <div class="catalogo8" >
+          
+            <form enctype="multipart/form-data" action="imagenes.php" method="POST">
+              <div class="input-group ">
+                <input type="text" name="descripcion" style="display: none;" value="Inicio">
+                <input accept="image/*" name="imagen" type="file" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                <button class="btn btn-danger" type="submit">Guardar</button>
+
+              </div>
+            </form>
+          
+        </div>
+
+        </div>
+      
       </div>
-      <hr>
+     
 
     </div>
+ <hr>
 
 
 
 
-
-    <button type="submit">Actualizar</button>
-  </form>
+    
   <!-- Fin del cuepo -->
   <div id="carousel4" class="text-center mt-4">
     <h1 class="display-2">P O L I S</h1>
@@ -323,18 +278,24 @@ var ul1 = document.querySelector(".catalogo1");
 ul1.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] ?>");';
 
 
+//imagen Inicio
+var ul8 = document.querySelector(".catalogo8");
+ul8.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
+
+
+
 
 var ul2 = document.querySelector(".catalogo2");
-ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[4][0] ?>");';
 
 var ul3 = document.querySelector(".catalogo3");
 ul3.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
 
 var ul4 = document.querySelector(".catalogo4");
-ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
+ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
 
 </script>
-  <script src="codigo.js"></script>
+  <script src="js/codigo.js"></script>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -345,7 +306,7 @@ ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-  <script src="codigo.js"></script>
+  <script src="js/codigo.js"></script>
   <Script>
     $('.dropdown-toggle').dropdown();
   </Script>

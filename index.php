@@ -26,6 +26,10 @@ $collares = $mbd->prepare($sql);
 $collares->execute();
 $collares2 = $collares->fetchAll();
 
+$sql ="SELECT * FROM productos ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$ultimos = $collares->fetchAll();
 
 
 
@@ -163,51 +167,28 @@ if (isset($_SESSION["id"])) {
   </div>
 
   <div class="section--divider">
+    
     <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
+      <!-- carrusel de productos -->
+<div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach($ultimos as $ultimo): ?>
+            <div class="item"><div>
+          <div style="background-image: url('imagenes/productos/<?=$ultimo["imagen_id"]?>');" class="muestras arete1">
 
           </div>
           <div class="precios">
-            <p><?= $descripcion[1][1]?></p>
-            <h6><?= $descripcion[1][3]?>0</h6>
+            <p><?=$ultimo["nombre"]?></p>
+            <h6>$<?=number_format(floatval($ultimo["precio"]))?></h6>
 
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
+    
           </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-          <p><?= $descripcion[2][1]?></p>
-            <h6><?= $descripcion[2][3]?>0</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
-
+        </div></div>
+            
+            <?php endforeach;?>
           </div>
         </div>
 
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-          <p><?= $descripcion[3][1]?></p>
-            <h6><?= $descripcion[3][3]?>0</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-          <p><?= $descripcion[4][1]?></p>
-            <h6><?= $descripcion[4][3]?>0</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
   <hr />
@@ -238,7 +219,7 @@ if (isset($_SESSION["id"])) {
 
         <div class="row">
           <div class="col">
-            <img class="img-anillos" src="Img/carrusel/carrusel8.png" alt="" width="350px">
+            <img class="img-anillos" src="imagenes/<?= $collares2[2][0] ?>" alt="" width="350px">
           </div>
           <div class="col description-ring">
             <h3> <?= $descripcion[6][1]?> </h3>
@@ -304,7 +285,10 @@ if (isset($_SESSION["id"])) {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-  <script src="codigo.js"></script>
+
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/codigo.js"></script>
   <Script>
     $('.dropdown-toggle').dropdown();
 </Script>
@@ -339,13 +323,13 @@ pulseras.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] 
 
 
 var anillos = document.querySelector(".catalogo2");
-anillos.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+anillos.style.cssText = 'background-image: url("imagenes/<?=  $collares2[4][0] ?>");';
 
 var pañoleteros = document.querySelector(".catalogo3");
 pañoleteros.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
 
 var collares = document.querySelector(".catalogo4");
-collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
+collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
 
 
 

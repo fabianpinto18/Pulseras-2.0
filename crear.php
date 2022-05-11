@@ -41,6 +41,7 @@ if ($_POST["operacion"] == "Editar") {
     $resultado = $stmt->execute();
     if (!empty($resultado)) {
         echo 'registros Actualizado';
+       
     }
 }
 
