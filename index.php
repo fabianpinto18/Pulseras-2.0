@@ -49,29 +49,28 @@ if (isset($_SESSION["id"])) {
 
 <body>
 
+<div class="contenedor-masivo">
+
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
-      <a class="navbar-brand" href="#">
-        <img src="img/003-Final.png" class="img-tam" " alt="">
-      </a>
-      <a class="navbar-brand  ml-1" href="nuevo.php">Nuevo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-light nav-tamaño">
+      <div class="contenedor-img-nav">
+        <a class="navbar-brand" href="#">
+          <!-- <img src="img/003-Final.png" class="img-tam" " alt=""> -->
+        </a>
+      </div>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="navbar-brand" href="colecciones.php">Colecciones<span class="sr-only">(current)</span></a>
+      <div>
+        <ul class="menu_items">
+          <li class="active">
+            <a class="navbar-brand"  href="nuevo.php">Nuevo</a>
           </li>
-          <li class="nav-item">
+          <li>
+            <a class="navbar-brand" href="colecciones.php">Colecciones</a>
+          </li>
+          <li>
             <a class="navbar-brand" href="#">Sobre nosotros</a>
           </li>
-
-        </ul>
-        <div class="d-grid gap-2  ml-5">
-
           <?php if (!empty($users)) : ?>
             <div class="btn-group">
             <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,8 +80,7 @@ if (isset($_SESSION["id"])) {
             </button>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
-              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
-              
+              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a> 
             </div>
           </div>
             <?php else :  ?>
@@ -98,9 +96,13 @@ if (isset($_SESSION["id"])) {
             <p class="h4" style="display: inline; color:lightslategray"></p>
             <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
           </div> 
-          
-        </div>
+        </ul>
+        
+       
       </div>
+      <span class="btn_menu">
+              <i class="fa fa-bars"></i>
+      </span>
     </nav>
 
 
@@ -108,7 +110,7 @@ if (isset($_SESSION["id"])) {
 
 
     <!-- Carrusel -->
-    <div class="container-carousel mb-4">
+    <!-- <div class="container-carousel mb-4">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -135,9 +137,9 @@ if (isset($_SESSION["id"])) {
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
+    </div> -->
   </header>
-
+ 
   <div style="cursor: pointer;"  class="section--divider">
     <div class="container">
       <div class="row">
@@ -150,7 +152,7 @@ if (isset($_SESSION["id"])) {
       <a class="catalogo4 catalogos" href="coleccion-collares.php">  <div >Collares</div></a>
       </div>
     </div>
-  </div>
+  </div> 
   
   
   <div style="display: inline; margin:90px ">
@@ -238,7 +240,7 @@ if (isset($_SESSION["id"])) {
 
         <div class="row">
           <div class="col">
-            <img class="img-anillos" src="Img/carrusel/carrusel8.png" alt="" width="350px">
+            
           </div>
           <div class="col description-ring">
             <h3> <?= $descripcion[6][1]?> </h3>
@@ -260,11 +262,7 @@ if (isset($_SESSION["id"])) {
     
  
 <!-- Fin del cuepo -->
-  <div id="carousel4" class="text-center mt-4">
-    <h1 class="display-2">C E L E S T E</h1>
-    <h3>Pulseras para para toda ocasion</h3>
-    <button class="btn btn-outline-light">Ver los marcadores</button>
-  </div>
+  
   <footer class="pie-pagina"> 
               <div class="grupo-1">
                 <div class="box">
@@ -350,7 +348,7 @@ collares.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] 
 
 
 </script>
-
+</div>
 </body>
 
 </html>

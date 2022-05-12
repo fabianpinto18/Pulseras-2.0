@@ -630,22 +630,120 @@ ul.carousel-inner li.carousel3{
 .nav-tamaño{
   height: 200px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c5e2f0;
   
+}
+.contenedor-img-nav{
+  width: 30%;
+
 }
 .img-tam{
+  max-width: 95%;
+  min-width: auto;
   height:300px; 
-  width: 400px;
-  object-fit:contain;
+  width: 100%;
   margin-left: 50px;
+  object-fit: contain;
 }
+.menu_items{
+  display: flex;
+  margin-right: 90px;
+  list-style: none;
+}
+.menu_items li{
+  border-radius: 3px;
+  margin: 0 5px;
+}
+.menu_items li a{
+  padding: 7px 13px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  text-transform: uppercase;
+  color: black;
+}
+.menu_items li:hover,li.active{
+  background-color: rgba(0, 0, 0, .3);
+  transition: .4s;
+}
+.btn_menu{
+  margin-right: 30px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  
+}
+ul.show{
+  top:75px;
+  
+  
+}
+@media screen and (max-width: 1000px){
+  .img-tam{
+    width: 30%;
+  }
+  .menu_items li a{
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 858px) {
+  .nav-tamaño{
+    height: 75px;
+  }
+  .btn_menu{
+    display: inline-flex;
+  }
+  .menu_items{
+    position:fixed;
+    width: 100vw;
+    height: calc(100% - 65px);
+    background:#747a7a;
+    top: -100vh;
+    text-align: center;
+    transition: all .4s;
+    flex-direction: column;
+  }
+  .menu_items li {
+    margin: 30px 0 0 0;
+    line-height: 30px;
+  }
+  .menu_items li:hover{
+    background: none;
+  }
+  .menu_items li a{
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .menu_items li a:hover{
+    color: firebrick;
+  }
+  .img-tam{
+    width: 25%;
+    
+  }
+}
+@media screen and (max-width: 858px) and (orientation: landscape) {
+  .menu_items li {
+    margin: 5px 0 0 0;
+  }  
+  .menu_items{
+    overflow: scroll;
+    height: calc(100% - 65px);
+  }
+}
+
 .navbar-brand{
   
-  margin-left: 90px;
+  margin-left: 30px;
  
 }
-.btn-group{
-  right: 100px;
-}
+
 .container-footer{
   background-color: #e7e7e7;
   width: 100%;
@@ -729,4 +827,12 @@ ul.carousel-inner li.carousel3{
     grid-gap: 50px;
     padding: 45px 0px;
   }
+}
+/* estilos pagina responsiva */
+
+.contenedor-masivo{
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
 }
