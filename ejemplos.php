@@ -99,7 +99,7 @@ if (isset($_SESSION["id"])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
   <title>Collapsible sidebar using Bootstrap 4</title>
 
   <!-- Bootstrap CSS CDN -->
@@ -109,7 +109,7 @@ if (isset($_SESSION["id"])) {
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <!-- Our Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -117,58 +117,59 @@ if (isset($_SESSION["id"])) {
   <title>Este si es</title>
 </head>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
-    <a class="navbar-brand" href="#">
-      <img src="img/Logo.png" height="100" alt="">
-    </a>
-    <a class="navbar-brand  ml-5" href="image.php">Carrusel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light nav-tamaño">
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="navbar-brand" href="ejemplo.php">Formulario Andres<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="#">Sobre nosotros</a>
-        </li>
+<div class="contenedor-img-nav">
 
-      </ul>
-      <div class="d-grid gap-2  ml-5">
+  <img src="img/003-Final.png" class="img-tam" alt="">
 
-        <?php if (!empty($users)) : ?>
-          <div class="btn-group">
-            <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hola <?= $users["nombre"];
-                    ?>
+</div>
 
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
-              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
+<div class="contenedor-grande-nav">
+  <ul class="menu_items">
+    <li class="active">
+      <a class="navbar-brand" href="image.php">Carrulser</a>
+    </li>
+    <li>
+      <a class="navbar-brand" href="config_2.php">configuración index</a>
+    </li>
+    <li>
+      <a class="navbar-brand" href="#">Sobre nosotros</a>
+    </li>
+    <?php if (!empty($users)) : ?>
+      <div class="btn-group">
+        <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hola <?= $users["nombre"];
+                ?>
 
-            </div>
-          </div>
-        <?php else :  ?>
-          <p style="display: inline; color:lightslategray"><?= "Ingresar" ?></p>
-          <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
-        <?php endif ?>
-
-
-        <div style="color: red;" id="menu">
-
-          <p class="h4" style="display: inline; color:lightslategray"></p>
-          <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
-
-
-
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+          <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
         </div>
-
       </div>
+    <?php else :  ?>
+      <div class="btn-salir">
+        <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
+        <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+      </div>
+    <?php endif ?>
+
+
+    <div style="color: red;" id="menu">
+
+      <p class="h4" style="display: inline; color:lightslategray"></p>
+      <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
     </div>
-  </nav>
+  </ul>
+
+
+</div>
+<span class="btn_menu">
+  <i class="fa fa-bars"></i>
+</span>
+
+</nav>
 </header>
 
 <body>

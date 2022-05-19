@@ -31,24 +31,22 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
-      <a class="navbar-brand" href="index.php">
-        <img src="img/003-Final.png" class="img-tam" " alt="">
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño">
       
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="navbar-brand" href="colecciones.php">Colecciones<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="#">Sobre Nosotros</a>
-          </li>
-
-        </ul>
+      <div class="contenedor-img-nav">
+         
+          <img src="img/003-Final.png" class="img-tam" alt="">
         
-        <div class="d-grid gap-2  ml-5">
+      </div>
 
+      <div class="contenedor-grande-nav">
+        <ul class="menu_items">
+          <li class="active">
+            <a class="navbar-brand"  href="colecciones.php">Colecciones</a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="#">Sobre nosotros</a>
+          </li>
           <?php if (!empty($users)) : ?>
             <div class="btn-group">
             <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,9 +55,8 @@ if (isset($_SESSION["id"])) {
          
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="config.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
-              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
-              
+              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a> 
             </div>
           </div>
             <?php else :  ?>
@@ -67,20 +64,22 @@ if (isset($_SESSION["id"])) {
               <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
               <a  style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
               </div> 
-            <?php endif ?>
+              <?php endif ?>
           
 
            <div style="color: red;" id="menu">
 
             <p class="h4" style="display: inline; color:lightslategray"></p>
             <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
-
-            
-
           </div> 
-          
-        </div>
+        </ul>
+        
+       
       </div>
+      <span class="btn_menu">
+              <i class="fa fa-bars"></i>
+      </span>
+     
     </nav>
 
 
@@ -91,19 +90,29 @@ if (isset($_SESSION["id"])) {
    
   </header>
 
-  <div style="cursor: pointer;"  class="section--divider">
-    <div class="container">
-      <div class="row">
-      <a class="catalogo1 catalogos" href="coleccion-pulseras.php"><div >Pulseras</div></a>
-
-       <a class="catalogo2 catalogos" href="coleccion-anillos.php"> <div >Anillos</div></a>
-
-      <a class="catalogo3 catalogos " href="coleccion-amigos.php">  <div >Pañoleteros</div></a>
-
-      <a class="catalogo4 catalogos" href="coleccion-collares.php">  <div >Collares</div></a>
+  <div style="cursor: pointer;" class="section--divider">
+      <div class="container catalogo-responsive">
+        
+          <div class="cat">
+            <a class="catalogo1 catalogos dog" href="coleccion-amigos.php">
+              <div>Pulseras</div>
+            </a>
+            <a class="catalogo2 catalogos2 dog" href="coleccion-anillos.php">
+              <div>Anillos</div>
+            </a>
+          </div>
+          <div class="cat2">
+            <a class="catalogo3 catalogos3 " href="coleccion-pulseras.php">
+              <div>Pulseras/Pañoleteros</div>
+            </a>
+            <a class="catalogo4 catalogos4" href="coleccion-collares.php">
+              <div>Collares</div>
+            </a>
+          </div>
+        
       </div>
     </div>
-  </div>
+
   
 
   <div style="display: inline; margin:90px ">
@@ -218,35 +227,35 @@ if (isset($_SESSION["id"])) {
     <h3>Joyería para el hogar</h3>
     <button class="btn btn-outline-light">Ver los marcadores</button>
   </div>
-  <footer class="pie-pagina"> 
-              <div class="grupo-1">
-                <div class="box">
-                  <figure>
-                    <a href="#">
-                        <img src="img/003-Final.png" alt="Imagen del Footer">
-                    </a>
-                  </figure>
-                </div>
-                <div class="box">
-                  <h2>SOBRE NOSOTROS</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
-                </div>
-                <div class="box">
-                  <h2>CONTACTANOS</h2>
-                  <div class="red-social">
-                    <a href="" class="fa fa-facebook"></a>
-                    <a href="" class="fa fa-instagram"></a>
-                    <a href="" class="fa fa-youtube"></a>
-                  </div>
-                </div>
-              </div>
-              <div class="grupo-2">
-                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
+  <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure class="img-tam-footer">
+            <a href="#">
+              <img src="img/003-Final.png" alt="Imagen del Footer">
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+        </div>
+        <div class="box">
+          <h2>CONTACTANOS</h2>
+          <div class="red-social">
+            <a href="" class="fa fa-facebook"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <a href="" class="fa fa-youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-              </div>
+      </div>
 
-  </footer>
+    </footer>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -257,7 +266,7 @@ if (isset($_SESSION["id"])) {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-  <script src="codigo.js"></script>
+  <script src="js/codigo.js"></script>
   <Script>
     $('.dropdown-toggle').dropdown();
 </Script>

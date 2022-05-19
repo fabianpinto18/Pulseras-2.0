@@ -699,6 +699,7 @@ ul.show{
     display: inline-flex;
   }
   .menu_items{
+    z-index: 1;
     position:fixed;
     width: 100vw;
     height: calc(100% - 65px);

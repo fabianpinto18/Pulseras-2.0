@@ -1,6 +1,34 @@
 <?php
 include('conexion.php');
 
+if(isset($_POST["boton_imagen"])){
+    
+    $idImagen=$_POST["boton_imagen"];
+
+    $stmp = $mbd->prepare("SELECT nombre FROM imagenes WHERE id = '$idImagen' ");
+    $stmp->execute();
+    $resultado = $stmp->fetchAll();
+    $nombre=  "";
+    foreach ($resultado as $value) {
+        $nombre= $value["nombre"];
+    }
+    
+    echo $nombre;
+    
+    if ($nombre!="") {
+        unlink("imagenes/".$nombre);
+    }
+
+
+    $stmt = $mbd->prepare("DELETE FROM imagenes WHERE id =:id");
+    $stmt->bindParam(':id', $_POST["boton_imagen"]);
+    $resultado = $stmt->execute();
+    if (!empty($resultado)) {
+        echo 'registros Borrado';
+    }
+}
+
+
 if(isset($_POST['imagen'])){
     
 $imagen1= $_POST['imagen'][0] ;

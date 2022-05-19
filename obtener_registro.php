@@ -15,9 +15,9 @@ if (isset($_POST["id_producto"])) {
         $salida["precio"] = $fila["precio"];
         $salida["categoria_id"] = $fila["categoria_id"];
         if ($fila["imagen_id"] != "") {
-            $salida["imagen_id"] = '<img src="imagenes/productos/' . $fila["imagen_id"] . ' " class="img-thumbnail" width="50" height="50" /><input type="hidden" name="imagen_producto_oculta" value="' . $fila["imagen_id"] . '"';
+            $salida["imagen_id"] = '<img src="imagenes/productos/' . $fila["imagen_id"] . ' " class="img-thumbnail" width="50" height="50" /><input type="hidden" name="imagen_producto_oculta" value="' . $fila["imagen_id"] . '">';
         }else{
-            $salida["imagen_id"] = '<input type="hidden" name="imagen_producto_oculta" value="' . $fila["imagen_id"] . '"';
+            $salida["imagen_id"] = '<input type="hidden" name="imagen_producto_oculta" value="' . $fila["imagen_id"] . '">';
         }
         
     }

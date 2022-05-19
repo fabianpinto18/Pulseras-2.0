@@ -7,12 +7,12 @@ $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
 
-$sql ="SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
+$sql ="SELECT nombre,categoria FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
 $collares = $mbd->prepare($sql);
 $collares->execute();
 $collares2 = $collares->fetchAll();
-// var_dump($collares2);
-// echo $collares2[2][0];
+
+
 
 
 
@@ -39,58 +39,59 @@ if (isset($_SESSION["id"])) {
 
 
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño ">
-      <a class="navbar-brand" href="#">
-        <img src="img/003-Final.png" class="img-tam" " alt="">
-      </a>
-      <a class="navbar-brand  ml-5" href="image.php">Carrusel</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light nav-tamaño">
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="navbar-brand" href="ejemplos.php">Registro de Imagenes<span class="sr-only">(current)</span></a>
-          </li>
+<div class="contenedor-img-nav">
+
+  <img src="img/003-Final.png" class="img-tam" alt="">
+
+</div>
+
+<div class="contenedor-grande-nav">
+  <ul class="menu_items">
+    <li class="active">
+      <a class="navbar-brand" href="image.php">Carrusel</a>
+    </li>
+    <li>
+      <a class="navbar-brand" href="ejemplos.php">Registrar producto</a>
+    </li>
+    <li>
+      <a class="navbar-brand" href="#">Sobre nosotros</a>
+    </li>
+    <?php if (!empty($users)) : ?>
+      <div class="btn-group">
+        <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hola <?= $users["nombre"];
+                ?>
+
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
          
-
-        </ul>
-        <div class="d-grid gap-2  ml-5">
-
-          <?php if (!empty($users)) : ?>
-            <div class="btn-group">
-            <button style="opacity: 0.5;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hola <?= $users["nombre"]; 
-            ?>
-         
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
-              <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
-              
-            </div>
-          </div>
-            <?php else :  ?>
-              <div class="btn-salir">
-              <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
-              <a  style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
-              </div> 
-            <?php endif ?>
-          
-
-           <div style="color: red;" id="menu">
-
-            <p class="h4" style="display: inline; color:lightslategray"></p>
-            <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
-
-            
-
-          </div> 
-          
+          <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
         </div>
       </div>
-    </nav>
+    <?php else :  ?>
+      <div class="btn-salir">
+        <a class="texto-i mt-1" style="display: inline; color:lightslategray" href="/Pulseras/admin.php"><?= "Ingresar" ?></a>
+        <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fal fa-user icono"></i> </a>
+      </div>
+    <?php endif ?>
+
+
+    <div style="color: red;" id="menu">
+
+      <p class="h4" style="display: inline; color:lightslategray"></p>
+      <!-- <a style="display: inline-flex; color:lightslategray" href="/Pulseras/admin.php"><i class="fas fa-angle-down icono"></i> </a> -->
+    </div>
+  </ul>
+
+
+</div>
+<span class="btn_menu">
+  <i class="fa fa-bars"></i>
+</span>
+
+</nav>
 
 
 
@@ -143,7 +144,8 @@ if (isset($_SESSION["id"])) {
         </div>
 
         <div class="catalogo4 catalogos" >
-          <div>Collares <form enctype="multipart/form-data" action="imagenes.php" method="POST">
+          <div>Collares 
+            <form enctype="multipart/form-data" action="imagenes.php" method="POST">
               <div class="input-group ">
                 <input type="text" name="descripcion" style="display: none;" value="Collares">
                 <input accept="image/*" name="imagen" type="file" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
@@ -170,69 +172,12 @@ if (isset($_SESSION["id"])) {
       </div>
     </div>
 
-    <div class="section--divider">
-      <div class="container">
-        <div class="row">
-          <div>
-            <div class="muestras arete1">
-
-            </div>
-            <div class="precios">
-              <input type="text" name="tendencia1" value="<?= $descripcion[1][1] ?>"></input>
-              <br />
-              <input type="text" name="costo1" value="<?= $descripcion[1][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="  background-color: #9384;"></div>
-              <div class="box-color" style="background-color: blue;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="arete2 muestras"> </div>
-            <div class="precios">
-              <input type="text" name="tendencia2" value="<?= $descripcion[2][1] ?>"></input>
-              <br />
-              <input type="text" name="costo2" value="<?= $descripcion[2][3] ?>"></input>
-              <br />
-              <div class="box-color" style="background-color: #9384;"></div>
-
-            </div>
-          </div>
-
-          <div>
-            <div class="arete3 muestras "></div>
-            <div class="precios">
-              <input type="text" name="tendencia3" value="<?= $descripcion[3][1] ?>"></input>
-              <br />
-              <input type="text" name="costo3" value="<?= $descripcion[3][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="background-color: gold;;"></div>
-              <div class="box-color" style="background-color: white;"></div>
-            </div>
-
-          </div>
-
-          <div>
-            <div class="arete4 muestras"> </div>
-            <div class="precios">
-              <input type="text" name="tendencia4" value="<?= $descripcion[4][1] ?>"></input>
-              <br />
-              <input type="text" name="costo4" value="<?= $descripcion[4][3] ?>"></input>
-              <br />
-
-              <div class="box-color" style="  background-color: green;"></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+  
     <hr />
     <!-- Inicio del Cuerpo -->
 
 
-    <p style="display:none" </p>
+    <p style="display:none"> </p>
     <div class="container">
       <div class="capa-basicos mb-5">
         <div class="row">
@@ -257,10 +202,7 @@ if (isset($_SESSION["id"])) {
     <div class="container">
 
       <div class="row">
-        <div class="col">
-          <img class="img-anillos" src="Img/Pulsera_1" alt="" width="350px">
-        </div>
-        <div class="col description-ring">
+          <div class="col   order-12 description-ring">
           <input type="text" name="title3" value="<?= $descripcion[6][1] ?>"> </input>
 
 
@@ -269,72 +211,90 @@ if (isset($_SESSION["id"])) {
             <?= $descripcion[6][3] ?>
             </textarea>
           <br>
-
+          <button type="submit">Actualizar</button>
+  </form>
 
         </div>
+        <div class="col order-1" >
+        <div class="catalogo8" >
+          
+            <form enctype="multipart/form-data" action="imagenes.php" method="POST">
+              <div class="input-group ">
+                <input type="text" name="descripcion" style="display: none;" value="Inicio">
+                <input accept="image/*" name="imagen" type="file" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                <button class="btn btn-danger" type="submit">Guardar</button>
+
+              </div>
+            </form>
+          
+        </div>
+
+        </div>
+      
       </div>
-      <hr>
+     
 
     </div>
+ <hr>
 
 
 
 
-
-    <button type="submit">Actualizar</button>
-  </form>
+    
   <!-- Fin del cuepo -->
-  <div id="carousel4" class="text-center mt-4">
-    <h1 class="display-2">P O L I S</h1>
-    <h3>Pulseras para para toda ocasion</h3>
-    <button class="btn btn-outline-light">Ver los marcadores</button>
-  </div>
-  <footer class="pie-pagina"> 
-              <div class="grupo-1">
-                <div class="box">
-                  <figure>
-                    <a href="#">
-                        <img src="img/003-Final.png" alt="Imagen del Footer">
-                    </a>
-                  </figure>
-                </div>
-                <div class="box">
-                  <h2>SOBRE NOSOTROS</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
-                </div>
-                <div class="box">
-                  <h2>CONTACTANOS</h2>
-                  <div class="red-social">
-                    <a href="" class="fa fa-facebook"></a>
-                    <a href="" class="fa fa-instagram"></a>
-                    <a href="" class="fa fa-youtube"></a>
-                  </div>
-                </div>
-              </div>
-              <div class="grupo-2">
-                  <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
+  
+  <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure class="img-tam-footer">
+            <a href="#">
+              <img src="img/003-Final.png" alt="Imagen del Footer">
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, pariatur.</p>
+        </div>
+        <div class="box">
+          <h2>CONTACTANOS</h2>
+          <div class="red-social">
+            <a href="" class="fa fa-facebook"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <a href="" class="fa fa-youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small>&COPY; 2021 <b>IllumTech.com</b> - Todo los derechos Reservados</small>
 
-              </div>
+      </div>
 
-  </footer>
+    </footer>
   <script>
 var ul1 = document.querySelector(".catalogo1");
 ul1.style.cssText = 'background-image: url("imagenes/<?=  $collares2[0][0] ?>");';
 
 
+//imagen Inicio
+var ul8 = document.querySelector(".catalogo8");
+ul8.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
+
+
+
 
 var ul2 = document.querySelector(".catalogo2");
-ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
+ul2.style.cssText = 'background-image: url("imagenes/<?=  $collares2[4][0] ?>");';
 
 var ul3 = document.querySelector(".catalogo3");
 ul3.style.cssText = 'background-image: url("imagenes/<?=   $collares2[1][0]?>");';
 
 var ul4 = document.querySelector(".catalogo4");
-ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");';
+ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[3][0] ?>");';
 
 </script>
-  <script src="codigo.js"></script>
+  <script src="js/codigo.js"></script>
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -345,7 +305,7 @@ ul4.style.cssText = 'background-image: url("imagenes/<?=  $collares2[2][0] ?>");
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-  <script src="codigo.js"></script>
+  <script src="js/codigo.js"></script>
   <Script>
     $('.dropdown-toggle').dropdown();
   </Script>
