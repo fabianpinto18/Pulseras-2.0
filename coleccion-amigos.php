@@ -17,6 +17,11 @@ $total_imagenes = $llamado1->rowCount();
 $paginas = $total_imagenes/3;
 $paginas = ceil($paginas);
 
+$sql = "SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$collares2 = $collares->fetchAll();
+
 //var_dump($productos);
 // foreach($descripcion as $titulo){
 //   echo var_dump($titulo);
@@ -127,6 +132,7 @@ if (isset($_SESSION["id"])) {
         
       </div>
     </div>
+    
 
 
   <div style="display: inline; margin:90px ">
@@ -254,6 +260,24 @@ if (isset($_SESSION["id"])) {
     <Script>
       $('.dropdown-toggle').dropdown();
     </Script>
+    <script>
+   
+
+
+      var pulseras = document.querySelector(".catalogo1");
+      pulseras.style.cssText = 'background-image: url("imagenes/<?= $collares2[0][0] ?>");';
+
+
+
+      var anillos = document.querySelector(".catalogo2");
+      anillos.style.cssText = 'background-image: url("imagenes/<?= $collares2[4][0] ?>");';
+
+      var pañoleteros = document.querySelector(".catalogo3");
+      pañoleteros.style.cssText = 'background-image: url("imagenes/<?= $collares2[1][0] ?>");';
+
+      var collares = document.querySelector(".catalogo4");
+      collares.style.cssText = 'background-image: url("imagenes/<?= $collares2[3][0] ?>");';
+    </script>
 
 </body>
 

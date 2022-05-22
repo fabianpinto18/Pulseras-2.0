@@ -3,11 +3,16 @@ session_start();
 include('conexion.php');
 include_once('header.php');
 $sql = "SELECT p.* FROM productos p LEFT JOIN categorias c ON p.categoria_id= c.id WHERE p.categoria_id=34 ";
-
-
 $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
+
+
+$sql = "SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$collares2 = $collares->fetchAll();
+
 // foreach($descripcion as $titulo){
 //   echo var_dump($titulo);
 // }
@@ -203,6 +208,20 @@ if (isset($_SESSION["id"])) {
   <script src="js/codigo.js"></script>
   <Script>
     $('.dropdown-toggle').dropdown();
+
+    var pulseras = document.querySelector(".catalogo1");
+      pulseras.style.cssText = 'background-image: url("imagenes/<?= $collares2[0][0] ?>");';
+
+
+
+      var anillos = document.querySelector(".catalogo2");
+      anillos.style.cssText = 'background-image: url("imagenes/<?= $collares2[4][0] ?>");';
+
+      var pañoleteros = document.querySelector(".catalogo3");
+      pañoleteros.style.cssText = 'background-image: url("imagenes/<?= $collares2[1][0] ?>");';
+
+      var collares = document.querySelector(".catalogo4");
+      collares.style.cssText = 'background-image: url("imagenes/<?= $collares2[3][0] ?>");';
 </Script>
 
 </body>

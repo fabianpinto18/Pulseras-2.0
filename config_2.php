@@ -184,9 +184,9 @@ if (isset($_SESSION["id"])) {
           <div class="col-md-6 col-sm-12 mt-5">
 
 
-            <input type="text" name="title2" value=<?= $descripcion[5][1] ?>></input>
+          <center>  <input type="text" name="title2"  class="title1" value=<?= $descripcion[5][1] ?>></input></center>
             <br />
-            <textarea type="text" name="descripcion2"><?= $descripcion[5][3] ?></textarea>
+            <textarea type="text" class="textarea1" name="descripcion2"><?= $descripcion[5][3] ?></textarea>
 
             <!-- <button class="btn btn-info rounded-0">Ver todos los basicos <i class="fa fa-arrow-right" aria-hidden="true"></i></button> -->
 
@@ -202,16 +202,14 @@ if (isset($_SESSION["id"])) {
     <div class="container">
 
       <div class="row">
-          <div class="col   order-12 description-ring">
-          <input type="text" name="title3" value="<?= $descripcion[6][1] ?>"> </input>
-
-
+          <div class="col   order-12 description-ring"><center>
+          <input type="text" class="title1 mb-4" name="title3" value="<?= $descripcion[6][1] ?>"> </input>
           <br>
-          <textarea name="descripcion3">
+          <textarea class="textarea2" name="descripcion3">
             <?= $descripcion[6][3] ?>
             </textarea>
           <br>
-          <button type="submit">Actualizar</button>
+          <button type="submit">Actualizar</button></center>
   </form>
 
         </div>
