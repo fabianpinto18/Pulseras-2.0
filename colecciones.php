@@ -9,6 +9,34 @@ $descripcion = $llamado->fetchAll();
 // foreach($descripcion as $titulo){
 //   echo var_dump($titulo);
 // }
+
+$sql = "SELECT nombre FROM imagenes WHERE last_updated IN (SELECT MAX(last_updated) FROM imagenes GROUP BY categoria) AND categoria != 'Carrusel'  AND categoria != 'Nada' ORDER BY categoria DESC";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$collares2 = $collares->fetchAll();
+
+$sql = "SELECT * FROM productos WHERE categoria_id = 35 ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$anillos = $collares->fetchAll();
+
+
+$sql = "SELECT * FROM productos WHERE categoria_id = 33 ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$pulseras = $collares->fetchAll();
+
+$sql = "SELECT * FROM productos WHERE categoria_id = 34 ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$collares1 = $collares->fetchAll();
+
+
+$sql = "SELECT * FROM productos WHERE categoria_id = 36 ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$pañoleteros1 = $collares->fetchAll();
+
 if (isset($_SESSION["id"])) {
   $id = $_SESSION["id"];
   $sql = "SELECT `id`, `correo`,  `nombre`, `contraseña` FROM `users` WHERE `id`= '$id'";
@@ -110,128 +138,8 @@ if (isset($_SESSION["id"])) {
         
       </div>
     </div>
-
   
   
-  <div style="display: inline; margin:90px ">
-    <div>
-      <h2 style="float: left;margin-left: 80px; ">Coleccion Amigos</h2>
-    </div>
-    <div>
-      <P style="float: right;margin-right: 80px; ">Todos</P><br>
-    </div>
-  </div>
-
-  <div class="section--divider">
-    <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
-
-          </div>
-        </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr />
-
-  <div style="display: inline; margin:90px ">
-    <div>
-      <h2 style="float: left;margin-left: 80px; ">Coleccion Amigos</h2>
-    </div>
-    <div>
-      <P style="float: right;margin-right: 80px; ">Todos</P><br>
-    </div>
-  </div>
-  
-
-  <div class="section--divider">
-    <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
-
-          </div>
-        </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr />
-
   <div style="display: inline; margin:90px ">
     <div>
       <h2 style="float: left;margin-left: 80px; ">Coleccion Anillos</h2>
@@ -240,114 +148,29 @@ if (isset($_SESSION["id"])) {
       <P style="float: right;margin-right: 80px; ">Todos</P><br>
     </div>
   </div>
-  
 
   <div class="section--divider">
     <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
+    <div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach ($anillos as $anillo) : ?>
+              <div class="item">
+                <div>
+                  <div style="background-image: url('imagenes/productos/<?= $anillo["imagen_id"] ?>');" class="muestras arete1">
 
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
+                  </div>
+                  <div class="precios">
+                    <p><?= $anillo["nombre"] ?></p>
+                    <h6>$<?= number_format(floatval($anillo["precio"])) ?></h6>
 
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
 
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
           </div>
         </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr />
-
-  <div style="display: inline; margin:90px ">
-    <div>
-      <h2 style="float: left;margin-left: 80px; ">Coleccion Collares</h2>
-    </div>
-    <div>
-      <P style="float: right;margin-right: 80px; ">Todos</P><br>
-    </div>
-  </div>
-  
-
-  <div class="section--divider">
-    <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
-
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
-
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
-
-          </div>
-        </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
   <hr />
@@ -364,62 +187,111 @@ if (isset($_SESSION["id"])) {
 
   <div class="section--divider">
     <div class="container">
-      <div class="row">
-        <div>
-          <div class="muestras arete1">
+    <div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach ($pulseras as $pulsera) : ?>
+              <div class="item">
+                <div>
+                  <div style="background-image: url('imagenes/productos/<?= $pulsera["imagen_id"] ?>');" class="muestras arete1">
 
-          </div>
-          <div class="precios">
-            <p>Amuleto m·o·m</p>
-            <h6>$30.000,00</h6>
+                  </div>
+                  <div class="precios">
+                    <p><?= $pulsera["nombre"] ?></p>
+                    <h6>$<?= number_format(floatval($pulsera["precio"])) ?></h6>
 
-            <div class="box-color" style="  background-color: #9384;"></div>
-            <div class="box-color" style="background-color: blue;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="arete2 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Alianza</p>
-            <h6>$178.000,00</h6>
-            <div class="box-color" style="background-color: #9384;"></div>
 
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
           </div>
         </div>
-
-        <div>
-          <div class="arete3 muestras "></div>
-          <div class="precios">
-            <p>Topos Unión m·o·m</p>
-            <h6>$87.000,00</h6>
-            <div class="box-color" style="background-color: gold;;"></div>
-            <div class="box-color" style="background-color: white;"></div>
-          </div>
-
-        </div>
-
-        <div>
-          <div class="arete4 muestras"> </div>
-          <div class="precios">
-            <p>Aretes Lazos de azúcar</p>
-            <h6>$187.000,00</h6>
-            <div class="box-color" style="  background-color: green;"></div>
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
   <hr />
+
+  <div style="display: inline; margin:90px ">
+    <div>
+      <h2 style="float: left;margin-left: 80px; ">Coleccion Collares</h2>
+    </div>
+    <div>
+      <P style="float: right;margin-right: 80px; ">Todos</P><br>
+    </div>
+  </div>
+  
+
+  <div class="section--divider">
+    <div class="container">
+    <div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach ($collares1 as $collar) : 
+         ?>
+              <div class="item">
+                <div>
+                  <div style="background-image: url('imagenes/productos/<?= $collar["imagen_id"] ?>');" class="muestras arete1">
+
+                  </div>
+                  <div class="precios">
+                    <p><?= $collar["nombre"] ?></p>
+                    <h6>$<?= number_format(floatval($collar["precio"])) ?></h6>
+
+
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
+          </div>
+        </div>
+    </div>
+  </div>
+  <hr />
+
+
+
+  <div style="display: inline; margin:90px ">
+    <div>
+      <h2 style="float: left;margin-left: 80px; ">Coleccion Pañoleteros</h2>
+    </div>
+    <div>
+      <P style="float: right;margin-right: 80px; ">Todos</P><br>
+    </div>
+  </div>
+  
+
+  <div class="section--divider">
+    <div class="container">
+    <div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach ($pañoleteros1 as $pañoletero) : ?>
+
+              <div class="item">
+                <div>
+                  <div style="background-image: url('imagenes/productos/<?= $pañoletero["imagen_id"] ?>');" class="muestras arete1">
+
+                  </div>
+                  <div class="precios">
+                    <p><?= $pañoletero["nombre"] ?></p>
+                    <h6>$<?= number_format(floatval($pañoletero["precio"])) ?></h6>
+
+
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  
   <!-- Inicio del Cuerpo -->
 
  
 <!-- Fin del cuepo -->
-  <div id="carousel4" class="text-center mt-4">
-    <h1 class="display-2">Capa Hogar</h1>
-    <h3>Joyería para el hogar</h3>
-    <button class="btn btn-outline-light">Ver los marcadores</button>
-  </div>
+
   <footer class="pie-pagina">
       <div class="grupo-1">
         <div class="box">
@@ -460,8 +332,25 @@ if (isset($_SESSION["id"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
   <script src="js/codigo.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    
   <Script>
     $('.dropdown-toggle').dropdown();
+
+    var pulseras = document.querySelector(".catalogo1");
+      pulseras.style.cssText = 'background-image: url("imagenes/<?= $collares2[0][0] ?>");';
+
+
+
+      var anillos = document.querySelector(".catalogo2");
+      anillos.style.cssText = 'background-image: url("imagenes/<?= $collares2[4][0] ?>");';
+
+      var pañoleteros = document.querySelector(".catalogo3");
+      pañoleteros.style.cssText = 'background-image: url("imagenes/<?= $collares2[1][0] ?>");';
+
+      var collares = document.querySelector(".catalogo4");
+      collares.style.cssText = 'background-image: url("imagenes/<?= $collares2[3][0] ?>");';
 </Script>
 
 </body>

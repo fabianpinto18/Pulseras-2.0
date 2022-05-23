@@ -144,7 +144,7 @@ if (isset($_SESSION["id"])) {
 
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a href="config_2.php" class="dropdown-item btn btn-mute" type="button">Configuracion</a>
+         
           <a href="logout.php" class="dropdown-item btn btn-mute" type="button">Salir</a>
         </div>
       </div>
@@ -260,6 +260,10 @@ if (isset($_SESSION["id"])) {
     </div>
   </div>
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+ 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -414,6 +418,7 @@ if (isset($_SESSION["id"])) {
 
     });
   </script>
+  
 </body>
 
 </html>
