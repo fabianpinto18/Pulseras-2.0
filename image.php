@@ -33,6 +33,8 @@ if (isset($_SESSION["id"])) {
   } else {
     echo "Mensaje bla bla bla";
   }
+}else{
+  header("location:admin.php");
 }
 
 ?>

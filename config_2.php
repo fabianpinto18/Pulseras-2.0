@@ -30,6 +30,9 @@ if (isset($_SESSION["id"])) {
   } else {
     echo "Mensaje bla bla bla";
   }
+}else{
+  // Este else se utiliza para las validaciones de sesiones 
+  header("location:admin.php");
 }
 
 

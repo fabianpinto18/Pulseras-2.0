@@ -2,15 +2,18 @@
 session_start();
 include('conexion.php');
 include_once('header.php');
+$numRand = rand(33, 36);
+$prodRand="";
 $sql = "SELECT  * FROM `descripcion`  ";
 $llamado = $mbd->prepare($sql);
 $llamado->execute();
 $descripcion = $llamado->fetchAll();
-// foreach($descripcion as $titulo){
-//   echo var_dump($titulo);
-// }
 
 
+$sql = "SELECT * FROM productos WHERE categoria_id = $numRand ORDER BY id DESC LIMIT 10";
+$collares = $mbd->prepare($sql);
+$collares->execute();
+$random = $collares->fetchAll();
 
 $sql = "SELECT `nombre` FROM `imagenes` WHERE categoria ='Carrusel'";
 $llamado_1 = $mbd->prepare($sql);
@@ -146,24 +149,24 @@ if (isset($_SESSION["id"])) {
 
     <div style="cursor: pointer;" class="section--divider">
       <div class="container catalogo-responsive">
-        
-          <div class="cat">
-            <a class="catalogo1 catalogos dog" href="coleccion-amigos.php">
-              <div>Pulseras</div>
-            </a>
-            <a class="catalogo2 catalogos2 dog" href="coleccion-anillos.php">
-              <div>Anillos</div>
-            </a>
-          </div>
-          <div class="cat2">
-            <a class="catalogo3 catalogos3 " href="coleccion-pulseras.php">
-              <div>Pulseras/Pañoleteros</div>
-            </a>
-            <a class="catalogo4 catalogos4" href="coleccion-collares.php">
-              <div>Collares</div>
-            </a>
-          </div>
-        
+
+        <div class="cat">
+          <a class="catalogo1 catalogos dog" href="coleccion-amigos.php">
+            <div>Pulseras</div>
+          </a>
+          <a class="catalogo2 catalogos2 dog" href="coleccion-anillos.php">
+            <div>Anillos</div>
+          </a>
+        </div>
+        <div class="cat2">
+          <a class="catalogo3 catalogos3 " href="coleccion-pulseras.php">
+            <div>Pulseras/Pañoleteros</div>
+          </a>
+          <a class="catalogo4 catalogos4" href="coleccion-collares.php">
+            <div>Collares</div>
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -204,6 +207,65 @@ if (isset($_SESSION["id"])) {
       </div>
     </div>
     <hr />
+
+    <!-- Producto Random  -->
+    <?php
+
+    switch ($numRand) {
+      case 33:
+          $prodRand="Pulseras";
+        break;
+      case 34:
+        $prodRand="Collares";
+        break;
+
+      case 35:
+        $prodRand="Anillos";
+        break;
+
+      default:
+      $prodRand="Pañoleteros";
+        break;
+    }
+
+    ?>
+
+<div style="display: inline; margin:90px ">
+      <div>
+        <h2 style="float: left;margin-left: 80px; ">Ultimos <?= $prodRand ?></h2>
+      </div>
+      <div>
+        <P style="float: right;margin-right: 80px; ">Todos</P><br>
+      </div>
+    </div>
+
+    <div class="section--divider">
+      <div class="container">
+        <!-- carrusel de productos -->
+        <div class="owl-container text-center">
+          <div class="owl-carousel owl-theme">
+            <?php foreach ($random as $randon) : ?>
+              <div class="item">
+                <div>
+                  <div style="background-image: url('imagenes/productos/<?= $randon["imagen_id"] ?>');" class="muestras arete1">
+
+                  </div>
+                  <div class="precios">
+                    <p><?= $randon["nombre"] ?></p>
+                    <h6>$<?= number_format(floatval($randon["precio"])) ?></h6>
+
+
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr>
     <!-- Inicio del Cuerpo -->
 
 
